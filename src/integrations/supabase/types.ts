@@ -311,6 +311,57 @@ export type Database = {
         }
         Relationships: []
       }
+      rental_items: {
+        Row: {
+          category: string
+          colors: string | null
+          created_at: string
+          id: string
+          item_name: string
+          item_slug: string
+          notes: string | null
+          price_max: number | null
+          price_min: number | null
+          price_text: string | null
+          service_slug: string
+          sort_order: number
+          subcategory: string | null
+          unit: string | null
+        }
+        Insert: {
+          category: string
+          colors?: string | null
+          created_at?: string
+          id?: string
+          item_name: string
+          item_slug: string
+          notes?: string | null
+          price_max?: number | null
+          price_min?: number | null
+          price_text?: string | null
+          service_slug?: string
+          sort_order?: number
+          subcategory?: string | null
+          unit?: string | null
+        }
+        Update: {
+          category?: string
+          colors?: string | null
+          created_at?: string
+          id?: string
+          item_name?: string
+          item_slug?: string
+          notes?: string | null
+          price_max?: number | null
+          price_min?: number | null
+          price_text?: string | null
+          service_slug?: string
+          sort_order?: number
+          subcategory?: string | null
+          unit?: string | null
+        }
+        Relationships: []
+      }
       services: {
         Row: {
           created_at: string
