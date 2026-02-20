@@ -4,7 +4,7 @@ import { BUSINESS } from "@/lib/constants";
 
 const Footer = () => {
   return (
-    <footer className="border-t bg-foreground text-primary-foreground">
+    <footer className="border-t bg-[hsl(200_18%_22%)] text-white">
       <div className="container py-12">
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand & Contact */}
@@ -57,13 +57,13 @@ const Footer = () => {
             <p className="text-sm opacity-80">
               Idaho Falls · Ammon · Shelley · Rigby · Rexburg · Blackfoot · Pocatello · and 20+ more communities across East Idaho.
             </p>
-            <Link to="/service-area" className="mt-2 inline-block text-sm font-medium text-accent underline-offset-2 hover:underline">
+            <Link to="/service-area" className="mt-2 inline-block text-sm font-medium text-secondary underline-offset-2 hover:underline">
               View all service areas →
             </Link>
           </div>
         </div>
 
-        <div className="mt-8 border-t border-primary-foreground/20 pt-6 text-center text-xs opacity-60">
+        <div className="mt-8 border-t border-white/20 pt-6 text-center text-xs opacity-60">
           © {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
         </div>
       </div>
