@@ -32,7 +32,7 @@ const GetAQuote = () => {
     e.preventDefault();
     setLoading(true);
     const form = new FormData(e.currentTarget);
-    const { error } = await supabase.from("leads").insert({
+    const leadData = {
       full_name: form.get("full_name") as string,
       email: form.get("email") as string,
       phone: form.get("phone") as string,
@@ -47,11 +47,14 @@ const GetAQuote = () => {
       menu_interest: form.get("menu_interest") as string || null,
       message: form.get("message") as string || null,
       source: "quote_form",
-    });
+    };
+    const { error } = await supabase.from("leads").insert(leadData);
     setLoading(false);
     if (error) {
       toast.error("Something went wrong. Please try again.");
     } else {
+      // Fire-and-forget email notifications
+      supabase.functions.invoke("send-quote-emails", { body: { lead: leadData } }).catch(console.error);
       navigate("/thank-you");
     }
   };
