@@ -34,7 +34,7 @@ const Index = () => {
   const { data: services } = useQuery({
     queryKey: ["services-home"],
     queryFn: async () => {
-      const { data } = await supabase.from("services").select("*").order("sort_order").limit(4);
+      const { data } = await supabase.from("services").select("*").order("sort_order");
       return data || [];
     },
   });
@@ -99,8 +99,11 @@ const Index = () => {
       {/* Services */}
       <section className="py-20">
         <div className="container">
-          <SectionHeading title="Our Catering Services" />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHeading title="Everything You Need for a Seamless, Beautiful Event" />
+          <p className="mx-auto mt-4 max-w-3xl text-center text-muted-foreground">
+            From catering and florals to rentals and venue space, Simply Delicious provides complete event services so you can focus on enjoying your day.
+          </p>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {(services || []).map((service) => (
               <Card key={service.id} className="group overflow-hidden transition-shadow hover:shadow-lg">
                 {SERVICE_IMAGES[service.slug] && (

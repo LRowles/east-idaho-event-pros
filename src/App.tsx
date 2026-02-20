@@ -12,6 +12,13 @@ import DropOffCatering from "./pages/DropOffCatering";
 import SchoolCommunityEvents from "./pages/SchoolCommunityEvents";
 import HolidayCatering from "./pages/HolidayCatering";
 import Rentals from "./pages/Rentals";
+import BBQCatering from "./pages/BBQCatering";
+import EventRentals from "./pages/EventRentals";
+import FloralArrangements from "./pages/FloralArrangements";
+import WeddingFlowers from "./pages/WeddingFlowers";
+import WeddingEventDecor from "./pages/WeddingEventDecor";
+import EventVenue from "./pages/EventVenue";
+import OvernightAccommodations from "./pages/OvernightAccommodations";
 import MenusHub from "./pages/MenusHub";
 import MenuCategory from "./pages/MenuCategory";
 import GalleryHub from "./pages/GalleryHub";
@@ -43,6 +50,13 @@ const App = () => (
           <Route path="/school-community-events" element={<SchoolCommunityEvents />} />
           <Route path="/holiday-catering" element={<HolidayCatering />} />
           <Route path="/rentals" element={<Rentals />} />
+          <Route path="/bbq-catering" element={<BBQCatering />} />
+          <Route path="/event-rentals" element={<EventRentals />} />
+          <Route path="/floral-arrangements" element={<FloralArrangements />} />
+          <Route path="/wedding-flowers" element={<WeddingFlowers />} />
+          <Route path="/wedding-event-decor" element={<WeddingEventDecor />} />
+          <Route path="/event-venue" element={<EventVenue />} />
+          <Route path="/overnight-accommodations-coming-soon" element={<OvernightAccommodations />} />
           <Route path="/menus" element={<MenusHub />} />
           <Route path="/menus/:menuSlug" element={<MenuCategory />} />
           <Route path="/gallery" element={<GalleryHub />} />
