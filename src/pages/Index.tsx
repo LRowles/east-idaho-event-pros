@@ -79,10 +79,10 @@ const Index = () => {
             className="mx-auto mb-6 h-24 w-auto md:h-32"
           />
           <h1 className="mb-4 font-display text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-            Catering in East Idaho Made Easy
+            East Idaho's Best Catering — Featuring The Best BBQ Around
           </h1>
           <p className="mx-auto mb-8 max-w-2xl text-xl opacity-90">
-            Exceptional food. Dependable service. Stress-free events.
+            From slow-smoked BBQ to elegant weddings and full-service events, Simply Delicious makes hosting effortless and unforgettable.
           </p>
           <Button asChild size="lg" variant="secondary">
             <Link to="/get-a-quote">Get a Quote</Link>
