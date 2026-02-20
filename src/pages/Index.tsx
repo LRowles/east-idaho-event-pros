@@ -69,7 +69,7 @@ const Index = () => {
       <section className="relative py-28 text-white md:py-36">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://simplydeliciousmeals4you.com/wp-content/uploads/2021/11/food-serving.jpg')" }}
+          style={{ backgroundImage: "url('/images/hero-collage.png')" }}
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="container relative text-center">
@@ -191,7 +191,7 @@ const Index = () => {
         title="Request Your Catering Quote Today"
         subtitle="Tell us about your event and we'll help you create the perfect catering plan."
         buttonText="Get a Quote"
-        backgroundImage="https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387335880_1709144876165672_5339067931100811072_n.jpg"
+        backgroundImage="/images/hero-collage.png"
       />
     </Layout>
   );
