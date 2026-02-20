@@ -2,7 +2,7 @@ import ServicePage from "@/components/shared/ServicePage";
 
 const Rentals = () => (
   <ServicePage
-    slug="equipment-rentals"
+    slug="rentals"
     title="Equipment Rentals"
     hero="Event Equipment Rentals"
     description="Tables, chairs, linens, chafing dishes, and more — available as add-ons or standalone rentals."

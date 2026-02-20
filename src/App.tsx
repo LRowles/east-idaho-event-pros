@@ -42,7 +42,7 @@ const App = () => (
           <Route path="/drop-off-catering" element={<DropOffCatering />} />
           <Route path="/school-community-events" element={<SchoolCommunityEvents />} />
           <Route path="/holiday-catering" element={<HolidayCatering />} />
-          <Route path="/equipment-rentals" element={<Rentals />} />
+          <Route path="/rentals" element={<Rentals />} />
           <Route path="/menus" element={<MenusHub />} />
           <Route path="/menus/:menuSlug" element={<MenuCategory />} />
           <Route path="/gallery" element={<GalleryHub />} />
