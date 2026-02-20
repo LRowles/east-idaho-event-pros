@@ -395,6 +395,54 @@ export type Database = {
         }
         Relationships: []
       }
+      section_menu_items: {
+        Row: {
+          created_at: string
+          details: string | null
+          id: string
+          is_popular: boolean
+          menu_item_name: string
+          menu_item_slug: string
+          menu_section_slug: string
+          options_list: string | null
+          price_text: string | null
+          serving_size: string | null
+          short_description: string | null
+          sort_order: number
+          subsection_slug: string | null
+        }
+        Insert: {
+          created_at?: string
+          details?: string | null
+          id?: string
+          is_popular?: boolean
+          menu_item_name: string
+          menu_item_slug: string
+          menu_section_slug: string
+          options_list?: string | null
+          price_text?: string | null
+          serving_size?: string | null
+          short_description?: string | null
+          sort_order?: number
+          subsection_slug?: string | null
+        }
+        Update: {
+          created_at?: string
+          details?: string | null
+          id?: string
+          is_popular?: boolean
+          menu_item_name?: string
+          menu_item_slug?: string
+          menu_section_slug?: string
+          options_list?: string | null
+          price_text?: string | null
+          serving_size?: string | null
+          short_description?: string | null
+          sort_order?: number
+          subsection_slug?: string | null
+        }
+        Relationships: []
+      }
       services: {
         Row: {
           created_at: string
