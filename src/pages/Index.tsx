@@ -11,7 +11,7 @@ import { Star, CheckCircle } from "lucide-react";
 
 const SERVICE_IMAGES: Record<string, string> = {
   "wedding-catering": "https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387332482_322338657051584_2194251668547730201_n.jpg",
-  "corporate-catering": "https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/370300137_1359471194998773_74218418775500628_n.jpg",
+  "corporate-catering": "https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387315687_1293051664684159_3464295970262061447_n.jpg",
   "private-social-events": "https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387321781_304541078955913_8034468286226851046_n.jpg",
   "drop-off-catering": "https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387327410_1364222824529613_3621898923230723551_n.jpg",
 };
