@@ -19,11 +19,16 @@ const SERVICE_IMAGES: Record<string, string> = {
   "corporate-catering": "/images/387323688_1956278011425442_8630726564930268851_n.jpg",
   "private-social-events": "/images/0f769740-fe51-4446-a896-b9d5cf1bb275-e1752287998339.jpg",
   "drop-off-catering": "/images/387572267_767311951822165_8896737592358343224_n.jpg",
+  // No specific photo yet → use strong "event spread" / "decor" fallbacks
+  "school-community-events": "/images/387572267_767311951822165_8896737592358343224_n.jpg",
+  "holiday-catering": "/images/387555158_349046607521589_4229992590088156236_n.jpg",
+  "rentals": "/images/387328930_266085459751809_2146954159692935364_n.jpg",
   "event-rentals": "/images/387328930_266085459751809_2146954159692935364_n.jpg",
   "floral-arrangements": "/images/387328323_1335991683673269_2539022131233906399_n.jpg",
   "wedding-flowers": "/images/387328323_1335991683673269_2539022131233906399_n.jpg",
   "wedding-event-decor": "/images/387328930_266085459751809_2146954159692935364_n.jpg",
   "event-venue": "/images/387328323_1335991683673269_2539022131233906399_n.jpg",
+  "overnight-accommodations-coming-soon": "/images/387328323_1335991683673269_2539022131233906399_n.jpg",
 };
 
 const SERVICE_DESCRIPTIONS: Record<string, string> = {
