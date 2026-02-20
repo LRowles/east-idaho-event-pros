@@ -5,15 +5,15 @@ const CorporateCatering = () => (
     slug="corporate-catering"
     title="Corporate Catering"
     hero="Corporate Catering in East Idaho"
-    description="Professional catering for meetings, conferences, team lunches, and corporate events of any size."
+    description="Simply Delicious Catering provides dependable corporate catering for meetings, trainings, employee appreciation, and business events. We understand the importance of punctual delivery, professional presentation, and quality food."
     highlights={[
-      "Boxed lunches, buffets, and plated meals",
-      "Recurring weekly or monthly ordering available",
-      "Fast turnaround for last-minute meetings",
-      "Dietary-friendly options for diverse teams",
-      "Branded presentation and setup available",
-      "Invoice billing for business accounts",
+      "Office lunches",
+      "Executive meetings",
+      "Corporate events",
+      "Employee appreciation",
     ]}
+    bodyText="We make corporate catering simple and reliable."
+    ctaText="Request Corporate Catering"
   />
 );
 

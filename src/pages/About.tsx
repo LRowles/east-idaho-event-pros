@@ -14,21 +14,15 @@ const About = () => {
 
       <section className="py-20">
         <div className="container max-w-3xl">
-          <h2 className="mb-4 font-display text-2xl font-bold">Our Story</h2>
-          <p className="mb-6 text-muted-foreground">
-            Simply Delicious Catering was born from a love of great food and a passion for bringing people together. Based in Shelley, Idaho, we serve weddings, corporate events, private parties, and community gatherings across 27+ East Idaho communities.
+          <p className="mb-6 text-lg text-muted-foreground">
+            Simply Delicious Catering is dedicated to helping clients throughout East Idaho host exceptional events with delicious food and dependable service.
           </p>
           <p className="mb-6 text-muted-foreground">
-            Every dish is prepared with fresh, quality ingredients and care. Whether you need an elegant plated dinner for 200 or a casual drop-off lunch for 20, we bring the same dedication to every event.
+            Our team brings experience, professionalism, and attention to detail to every event. We work closely with clients to design menus that fit their vision and ensure everything runs smoothly.
           </p>
-
-          <h2 className="mb-4 mt-12 font-display text-2xl font-bold">Our Standards</h2>
-          <ul className="space-y-3 text-muted-foreground">
-            <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" /> Fresh, locally sourced ingredients whenever possible</li>
-            <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" /> Custom menus tailored to your event and dietary needs</li>
-            <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" /> Professional, friendly service from start to finish</li>
-            <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" /> On-time delivery and setup, every time</li>
-          </ul>
+          <p className="text-muted-foreground">
+            Our goal is to make catering simple, reliable, and enjoyable.
+          </p>
         </div>
       </section>
 

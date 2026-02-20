@@ -14,9 +14,11 @@ interface ServicePageProps {
   hero: string;
   description: string;
   highlights: string[];
+  bodyText?: string;
+  ctaText?: string;
 }
 
-const ServicePage = ({ slug, title, hero, description, highlights }: ServicePageProps) => {
+const ServicePage = ({ slug, title, hero, description, highlights, bodyText, ctaText }: ServicePageProps) => {
   const { data: testimonials } = useQuery({
     queryKey: ["testimonials", slug],
     queryFn: async () => {
@@ -32,7 +34,7 @@ const ServicePage = ({ slug, title, hero, description, highlights }: ServicePage
           <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">{hero}</h1>
           <p className="mx-auto max-w-2xl text-lg opacity-90">{description}</p>
           <Button asChild size="lg" variant="secondary" className="mt-6">
-            <Link to={`/get-a-quote?service=${slug}`}>Request a Quote</Link>
+            <Link to={`/get-a-quote?service=${slug}`}>{ctaText || "Request a Quote"}</Link>
           </Button>
         </div>
       </section>
@@ -48,6 +50,9 @@ const ServicePage = ({ slug, title, hero, description, highlights }: ServicePage
               </li>
             ))}
           </ul>
+          {bodyText && (
+            <p className="mx-auto mt-6 max-w-xl text-muted-foreground">{bodyText}</p>
+          )}
         </div>
       </section>
 
@@ -74,7 +79,7 @@ const ServicePage = ({ slug, title, hero, description, highlights }: ServicePage
         </section>
       )}
 
-      <CTABand />
+      <CTABand buttonText={ctaText || "Get a Catering Quote"} />
     </Layout>
   );
 };

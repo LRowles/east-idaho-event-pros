@@ -9,9 +9,9 @@ interface CTABandProps {
 }
 
 const CTABand = ({
-  title = "Ready to Start Planning?",
-  subtitle = "Tell us about your event and we'll craft a custom menu just for you.",
-  buttonText = "Get a Free Quote",
+  title = "Ready to Make Catering the Easiest Part of Your Event?",
+  subtitle = "Tell us about your event and we'll help you create the perfect catering plan.",
+  buttonText = "Get a Catering Quote",
   buttonHref = "/get-a-quote",
 }: CTABandProps) => {
   return (
