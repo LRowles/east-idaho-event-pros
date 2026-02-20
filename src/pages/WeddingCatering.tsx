@@ -5,15 +5,15 @@ const WeddingCatering = () => (
     slug="wedding-catering"
     title="Wedding Catering"
     hero="Wedding Catering in East Idaho"
-    description="From elegant plated dinners to relaxed buffets, we craft wedding menus that reflect your style and delight every guest."
+    description="Your wedding day deserves exceptional food and flawless service. Simply Delicious Catering works closely with couples to design menus that reflect your taste, style, and vision."
     highlights={[
-      "Custom tasting sessions for couples",
-      "Plated dinners, buffets, or family-style service",
-      "Cocktail hour appetizers and dessert bars",
-      "Coordination with your venue and wedding planner",
-      "Dietary accommodations (gluten-free, vegan, and more)",
-      "Full setup, service staff, and cleanup included",
+      "Menu planning",
+      "Presentation and setup",
+      "Service coordination",
+      "Dietary accommodations",
     ]}
+    bodyText="Whether you prefer a buffet, plated dinner, or cocktail-style reception, we provide professional catering that enhances your celebration and gives your guests a memorable dining experience. Our goal is to help make your wedding day smooth, beautiful, and unforgettable."
+    ctaText="Get a Wedding Catering Quote"
   />
 );
 

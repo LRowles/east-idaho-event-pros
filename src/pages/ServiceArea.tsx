@@ -18,14 +18,15 @@ const ServiceArea = () => {
     <Layout>
       <section className="bg-primary py-20 text-primary-foreground">
         <div className="container text-center">
-          <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">Our Service Area</h1>
-          <p className="mx-auto max-w-2xl text-lg opacity-90">Proudly serving 27+ communities across East Idaho.</p>
+          <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">Catering Services Throughout East Idaho</h1>
+          <p className="mx-auto max-w-2xl text-lg opacity-90">Simply Delicious Catering proudly serves communities across East Idaho. We provide professional catering for weddings, corporate events, private parties, and drop-off catering.</p>
         </div>
       </section>
 
       <section className="py-20">
         <div className="container">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <SectionHeading title="Select Your City" subtitle="Select your city to learn more about catering in your area." />
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {(cities || []).map((city) => (
               <Link
                 key={city.slug}

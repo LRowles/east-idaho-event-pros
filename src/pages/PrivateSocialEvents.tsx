@@ -4,16 +4,16 @@ const PrivateSocialEvents = () => (
   <ServicePage
     slug="private-social-events"
     title="Private & Social Events"
-    hero="Private & Social Event Catering"
-    description="Birthdays, anniversaries, graduations, reunions — we handle the food so you can enjoy the party."
+    hero="Private Event Catering in East Idaho"
+    description="From birthdays and anniversaries to reunions and celebrations, Simply Delicious Catering helps you create memorable events with delicious food and dependable service."
     highlights={[
       "Flexible menus for any party size",
       "Buffet, family-style, or cocktail service",
-      "Kid-friendly menu options available",
       "Custom dessert tables and appetizer spreads",
       "Indoor and outdoor event support",
-      "Full service or drop-off options",
     ]}
+    bodyText="We work with you to design a menu and service style that fits your event perfectly."
+    ctaText="Get Event Catering Quote"
   />
 );
 

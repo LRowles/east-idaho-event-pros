@@ -36,8 +36,8 @@ const Contact = () => {
     <Layout>
       <section className="bg-primary py-20 text-primary-foreground">
         <div className="container text-center">
-          <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">Contact Us</h1>
-          <p className="mx-auto max-w-2xl text-lg opacity-90">We'd love to hear from you — reach out anytime.</p>
+          <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">Contact Simply Delicious Catering</h1>
+          <p className="mx-auto max-w-2xl text-lg opacity-90">Have a question or ready to start planning your event?</p>
         </div>
       </section>
 
@@ -45,6 +45,9 @@ const Contact = () => {
         <div className="container grid gap-12 md:grid-cols-2">
           <div>
             <h2 className="mb-6 font-display text-2xl font-bold">Get in Touch</h2>
+            <p className="mb-6 text-muted-foreground">
+              Contact Simply Delicious Catering to learn more about our services or request a quote.
+            </p>
             <ul className="space-y-4 text-muted-foreground">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
@@ -63,6 +66,9 @@ const Contact = () => {
                 <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
               </li>
             </ul>
+            <p className="mt-6 text-muted-foreground">
+              Or submit a quote request and we'll follow up shortly.
+            </p>
           </div>
 
           <div>

@@ -60,8 +60,8 @@ const GetAQuote = () => {
     <Layout>
       <section className="bg-primary py-16 text-primary-foreground">
         <div className="container text-center">
-          <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">Get a Catering Quote</h1>
-          <p className="mx-auto max-w-2xl text-lg opacity-90">Tell us about your event — we'll get back to you within 24 hours with a custom proposal.</p>
+          <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">Request a Catering Quote</h1>
+          <p className="mx-auto max-w-2xl text-lg opacity-90">Tell us about your event and our team will help you create a catering plan tailored to your needs. We respond quickly and make the process simple.</p>
         </div>
       </section>
 
@@ -154,14 +154,13 @@ const GetAQuote = () => {
 
           <aside className="space-y-6">
             <div className="rounded-lg border bg-muted p-6">
-              <h3 className="mb-4 font-display text-lg font-semibold">Why Choose Us?</h3>
+              <h3 className="mb-4 font-display text-lg font-semibold">Our Team Can Assist With</h3>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 {[
-                  "Custom menus for every budget",
-                  "Serving 27+ East Idaho cities",
-                  "Full-service or drop-off options",
-                  "Experienced, professional team",
-                  "Free, no-obligation quotes",
+                  "Menu selection",
+                  "Event planning support",
+                  "Service options",
+                  "Scheduling",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
@@ -169,6 +168,9 @@ const GetAQuote = () => {
                   </li>
                 ))}
               </ul>
+              <p className="mt-4 text-sm text-muted-foreground">
+                Submit your request and we'll follow up with next steps.
+              </p>
             </div>
           </aside>
         </div>

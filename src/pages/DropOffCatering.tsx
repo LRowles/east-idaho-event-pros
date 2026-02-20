@@ -4,16 +4,16 @@ const DropOffCatering = () => (
   <ServicePage
     slug="drop-off-catering"
     title="Drop-Off Catering"
-    hero="Drop-Off Catering — Hot & Ready"
-    description="Freshly prepared meals delivered to your door, perfect for office lunches, family gatherings, and casual events."
+    hero="Drop-Off Catering in East Idaho"
+    description="Convenient, fresh catering delivered directly to your event location. Drop-off catering is perfect for business lunches, smaller gatherings, and informal events."
     highlights={[
+      "Food arrives ready to serve",
+      "Clear setup instructions included",
+      "Perfect for office lunches and smaller gatherings",
       "On-time delivery guaranteed",
-      "Hot & ready-to-serve meals",
-      "Setup instructions included",
-      "Popular boxed lunch options",
-      "Great for office meetings and team lunches",
-      "Minimum order sizes for every budget",
     ]}
+    bodyText="Food arrives ready to serve with clear setup instructions."
+    ctaText="Request Drop-Off Catering"
   />
 );
 
