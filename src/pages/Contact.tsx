@@ -1,0 +1,96 @@
+import Layout from "@/components/layout/Layout";
+import CTABand from "@/components/shared/CTABand";
+import { BUSINESS } from "@/lib/constants";
+import { MapPin, Phone, Mail } from "lucide-react";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
+
+const Contact = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    const form = new FormData(e.currentTarget);
+    const { error } = await supabase.from("leads").insert({
+      full_name: form.get("name") as string,
+      email: form.get("email") as string,
+      message: form.get("message") as string,
+      source: "quick_question",
+    });
+    setLoading(false);
+    if (error) {
+      toast.error("Something went wrong. Please try again.");
+    } else {
+      toast.success("Message sent! We'll get back to you soon.");
+      (e.target as HTMLFormElement).reset();
+    }
+  };
+
+  return (
+    <Layout>
+      <section className="bg-primary py-20 text-primary-foreground">
+        <div className="container text-center">
+          <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">Contact Us</h1>
+          <p className="mx-auto max-w-2xl text-lg opacity-90">We'd love to hear from you — reach out anytime.</p>
+        </div>
+      </section>
+
+      <section className="py-20">
+        <div className="container grid gap-12 md:grid-cols-2">
+          <div>
+            <h2 className="mb-6 font-display text-2xl font-bold">Get in Touch</h2>
+            <ul className="space-y-4 text-muted-foreground">
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                <span>{BUSINESS.address}</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                <span>
+                  <a href={`tel:${BUSINESS.phone1.replace(/\D/g, "")}`}>{BUSINESS.phone1}</a>
+                  <br />
+                  <a href={`tel:${BUSINESS.phone2.replace(/\D/g, "")}`}>{BUSINESS.phone2}</a>
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Mail className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="mb-6 font-display text-2xl font-bold">Quick Question</h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <Label htmlFor="name">Name</Label>
+                <Input id="name" name="name" required maxLength={100} />
+              </div>
+              <div>
+                <Label htmlFor="email">Email</Label>
+                <Input id="email" name="email" type="email" required maxLength={255} />
+              </div>
+              <div>
+                <Label htmlFor="message">Message</Label>
+                <Textarea id="message" name="message" required maxLength={1000} rows={4} />
+              </div>
+              <Button type="submit" disabled={loading}>
+                {loading ? "Sending..." : "Send Message"}
+              </Button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <CTABand />
+    </Layout>
+  );
+};
+
+export default Contact;
