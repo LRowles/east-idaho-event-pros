@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand & Contact */}
           <div>
-            <img src="/images/logo-dark.png" alt="Simply Delicious Catering" className="mb-4 h-20 w-auto" />
+            <img src="/images/logo-transparent.png" alt="Simply Delicious Catering" className="mb-4 h-20 w-auto" />
             <ul className="space-y-2 text-sm opacity-80">
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />

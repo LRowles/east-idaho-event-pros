@@ -68,7 +68,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/40" />
         <div className="container relative text-center">
           <img
-            src="/images/logo-dark.png"
+            src="/images/logo-transparent.png"
             alt="Simply Delicious Catering"
             className="mx-auto mb-6 h-24 w-auto md:h-32"
           />
