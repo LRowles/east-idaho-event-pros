@@ -63,8 +63,8 @@ const GetAQuote = () => {
     <Layout>
       <section className="bg-primary py-16 text-primary-foreground">
         <div className="container text-center">
-          <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">Request a Catering Quote</h1>
-          <p className="mx-auto max-w-2xl text-lg opacity-90">Tell us about your event and our team will help you create a catering plan tailored to your needs. We respond quickly and make the process simple.</p>
+          <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">Request Your Catering Quote</h1>
+          <p className="mx-auto max-w-2xl text-lg opacity-90">Tell us about your event and we'll help you create the perfect catering plan.</p>
         </div>
       </section>
 
@@ -150,8 +150,9 @@ const GetAQuote = () => {
                 <Textarea id="message" name="message" rows={4} maxLength={2000} />
               </div>
               <Button type="submit" size="lg" disabled={loading} className="w-full sm:w-auto">
-                {loading ? "Submitting..." : "Submit Quote Request"}
+                {loading ? "Submitting..." : "Get My Catering Quote"}
               </Button>
+              <p className="mt-2 text-sm text-muted-foreground">We respond quickly and your information is never shared.</p>
             </form>
           </div>
 
