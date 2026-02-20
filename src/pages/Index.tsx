@@ -60,8 +60,13 @@ const Index = () => {
       <JsonLd />
 
       {/* Hero */}
-      <section className="relative bg-primary py-24 text-primary-foreground md:py-32">
-        <div className="container text-center">
+      <section className="relative py-24 text-white md:py-32">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://simplydeliciousmeals4you.com/wp-content/uploads/2022/03/catering-services-bg.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <div className="container relative text-center">
           <h1 className="mb-4 font-display text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
             Catering in East Idaho Made Easy
           </h1>
