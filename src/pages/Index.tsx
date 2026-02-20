@@ -7,18 +7,18 @@ import SectionHeading from "@/components/shared/SectionHeading";
 import CTABand from "@/components/shared/CTABand";
 import JsonLd from "@/components/shared/JsonLd";
 import { supabase } from "@/integrations/supabase/client";
-import { Heart, Briefcase, PartyPopper, Truck, Star, CheckCircle } from "lucide-react";
+import { Star, CheckCircle } from "lucide-react";
 
-const iconMap: Record<string, React.ReactNode> = {
-  heart: <Heart className="h-8 w-8" />,
-  briefcase: <Briefcase className="h-8 w-8" />,
-  "party-popper": <PartyPopper className="h-8 w-8" />,
-  truck: <Truck className="h-8 w-8" />,
+const SERVICE_IMAGES: Record<string, string> = {
+  "wedding-catering": "https://simplydeliciousmeals4you.com/wp-content/uploads/2025/03/wedding-resized.jpg",
+  "corporate-catering": "https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/370300137_1359471194998773_74218418775500628_n.jpg",
+  "private-social-events": "https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387321781_304541078955913_8034468286226851046_n.jpg",
+  "drop-off-catering": "https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387327410_1364222824529613_3621898923230723551_n.jpg",
 };
 
 const SERVICE_DESCRIPTIONS: Record<string, string> = {
-  "wedding-catering": "Celebrate your wedding day with a menu designed around your vision. We provide full-service catering, elegant presentation, and attentive coordination so you can focus on enjoying every moment.",
-  "corporate-catering": "Dependable catering for meetings, trainings, employee appreciation, and company events. We deliver on time, present professionally, and make planning easy.",
+  "wedding-catering": "Celebrate your wedding day with a menu designed around your vision. We provide full-service catering, elegant presentation, and attentive coordination.",
+  "corporate-catering": "Dependable catering for meetings, trainings, employee appreciation, and company events. We deliver on time and present professionally.",
   "private-social-events": "From birthdays and anniversaries to reunions and celebrations, we help you create memorable experiences with food your guests will love.",
   "drop-off-catering": "Convenient, reliable catering delivered fresh and ready to serve. Perfect for office lunches, smaller gatherings, and informal events.",
 };
@@ -60,13 +60,18 @@ const Index = () => {
       <JsonLd />
 
       {/* Hero */}
-      <section className="relative py-24 text-white md:py-32">
+      <section className="relative py-28 text-white md:py-36">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://simplydeliciousmeals4you.com/wp-content/uploads/2022/03/catering-services-bg.jpg')" }}
+          style={{ backgroundImage: "url('https://simplydeliciousmeals4you.com/wp-content/uploads/2021/11/food-serving.jpg')" }}
         />
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/40" />
         <div className="container relative text-center">
+          <img
+            src="/images/logo-dark.png"
+            alt="Simply Delicious Catering"
+            className="mx-auto mb-6 h-24 w-auto md:h-32"
+          />
           <h1 className="mb-4 font-display text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
             Catering in East Idaho Made Easy
           </h1>
@@ -97,11 +102,18 @@ const Index = () => {
           <SectionHeading title="Our Catering Services" />
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {(services || []).map((service) => (
-              <Card key={service.id} className="group transition-shadow hover:shadow-lg">
-                <CardContent className="flex flex-col items-center p-6 text-center">
-                  <div className="mb-4 text-primary">
-                    {iconMap[service.icon || "heart"] || <Heart className="h-8 w-8" />}
+              <Card key={service.id} className="group overflow-hidden transition-shadow hover:shadow-lg">
+                {SERVICE_IMAGES[service.slug] && (
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={SERVICE_IMAGES[service.slug]}
+                      alt={service.name}
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                    />
                   </div>
+                )}
+                <CardContent className="p-5">
                   <h3 className="mb-2 font-display text-lg font-semibold">{service.name}</h3>
                   <p className="mb-4 text-sm text-muted-foreground">
                     {SERVICE_DESCRIPTIONS[service.slug] || service.tagline}
@@ -170,6 +182,7 @@ const Index = () => {
         title="Request Your Catering Quote Today"
         subtitle="Tell us about your event and we'll help you create the perfect catering plan."
         buttonText="Get a Quote"
+        backgroundImage="https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387335880_1709144876165672_5339067931100811072_n.jpg"
       />
     </Layout>
   );

@@ -34,8 +34,13 @@ const Contact = () => {
 
   return (
     <Layout>
-      <section className="bg-primary py-20 text-primary-foreground">
-        <div className="container text-center">
+      <section className="relative py-20 text-primary-foreground">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387328861_197261626655318_5497212651419768350_n.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="container relative text-center">
           <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">Contact Simply Delicious Catering</h1>
           <p className="mx-auto max-w-2xl text-lg opacity-90">Have a question or ready to start planning your event?</p>
         </div>
@@ -66,9 +71,14 @@ const Contact = () => {
                 <a href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>
               </li>
             </ul>
-            <p className="mt-6 text-muted-foreground">
-              Or submit a quote request and we'll follow up shortly.
-            </p>
+            <div className="mt-8 overflow-hidden rounded-lg shadow-lg">
+              <img
+                src="https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387329700_166175556561960_3353963838566535720_n.jpg"
+                alt="Simply Delicious catering setup"
+                className="w-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
 
           <div>
@@ -94,7 +104,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <CTABand />
+      <CTABand backgroundImage="https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387341855_216830891285400_4660425896227567006_n.jpg" />
     </Layout>
   );
 };

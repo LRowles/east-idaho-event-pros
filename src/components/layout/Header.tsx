@@ -9,9 +9,9 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[hsl(200_18%_22%)] text-white supports-[backdrop-filter]:bg-[hsl(200_18%_22%/0.95)] backdrop-blur">
-      <div className="container flex h-16 items-center justify-between">
+        <div className="container flex h-20 items-center justify-between">
         <Link to="/" className="flex items-center">
-          <img src="/images/logo-dark.png" alt="Simply Delicious Catering" className="h-12 w-auto" />
+          <img src="/images/logo-dark.png" alt="Simply Delicious Catering" className="h-16 w-auto" />
         </Link>
 
         {/* Desktop nav */}

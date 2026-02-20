@@ -14,6 +14,7 @@ const SchoolCommunityEvents = () => (
       "Flexible setup and service styles",
       "Serving portions for 50 to 500+ guests",
     ]}
+    heroImage="https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387332482_322338657051584_2194251668547730201_n.jpg"
   />
 );
 
