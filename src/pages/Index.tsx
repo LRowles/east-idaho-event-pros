@@ -14,6 +14,12 @@ const SERVICE_IMAGES: Record<string, string> = {
   "corporate-catering": "/images/corporate-catering.jpg",
   "private-social-events": "/images/private-events.jpg",
   "drop-off-catering": "/images/drop-off-catering.jpeg",
+  "bbq-catering": "/images/bbq-catering.jpg",
+  "event-rentals": "/images/event-rentals.jpg",
+  "floral-arrangements": "/images/floral-arrangements.jpg",
+  "wedding-flowers": "/images/wedding-flowers.jpg",
+  "wedding-event-decor": "/images/wedding-event-decor.jpg",
+  "event-venue": "/images/event-venue.jpg",
 };
 
 const SERVICE_DESCRIPTIONS: Record<string, string> = {
