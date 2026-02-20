@@ -212,9 +212,11 @@ export type Database = {
       }
       menu_items: {
         Row: {
+          category: string | null
           created_at: string
           description: string | null
           dietary_tags: string[] | null
+          featured: boolean | null
           id: string
           image_url: string | null
           menu_id: string
@@ -223,9 +225,11 @@ export type Database = {
           sort_order: number
         }
         Insert: {
+          category?: string | null
           created_at?: string
           description?: string | null
           dietary_tags?: string[] | null
+          featured?: boolean | null
           id?: string
           image_url?: string | null
           menu_id: string
@@ -234,9 +238,11 @@ export type Database = {
           sort_order?: number
         }
         Update: {
+          category?: string | null
           created_at?: string
           description?: string | null
           dietary_tags?: string[] | null
+          featured?: boolean | null
           id?: string
           image_url?: string | null
           menu_id?: string
@@ -256,9 +262,12 @@ export type Database = {
       }
       menus: {
         Row: {
+          best_for: string | null
           created_at: string
           description: string | null
+          dietary_notes: string | null
           id: string
+          menu_sections: Json | null
           name: string
           seo_description: string | null
           seo_title: string | null
@@ -266,9 +275,12 @@ export type Database = {
           sort_order: number
         }
         Insert: {
+          best_for?: string | null
           created_at?: string
           description?: string | null
+          dietary_notes?: string | null
           id?: string
+          menu_sections?: Json | null
           name: string
           seo_description?: string | null
           seo_title?: string | null
@@ -276,9 +288,12 @@ export type Database = {
           sort_order?: number
         }
         Update: {
+          best_for?: string | null
           created_at?: string
           description?: string | null
+          dietary_notes?: string | null
           id?: string
+          menu_sections?: Json | null
           name?: string
           seo_description?: string | null
           seo_title?: string | null
@@ -295,11 +310,14 @@ export type Database = {
           icon: string | null
           id: string
           name: string
+          process_steps: Json | null
           seo_description: string | null
           seo_title: string | null
           slug: string
           sort_order: number
+          starting_price_note: string | null
           tagline: string | null
+          what_you_get: string[] | null
         }
         Insert: {
           created_at?: string
@@ -308,11 +326,14 @@ export type Database = {
           icon?: string | null
           id?: string
           name: string
+          process_steps?: Json | null
           seo_description?: string | null
           seo_title?: string | null
           slug: string
           sort_order?: number
+          starting_price_note?: string | null
           tagline?: string | null
+          what_you_get?: string[] | null
         }
         Update: {
           created_at?: string
@@ -321,11 +342,14 @@ export type Database = {
           icon?: string | null
           id?: string
           name?: string
+          process_steps?: Json | null
           seo_description?: string | null
           seo_title?: string | null
           slug?: string
           sort_order?: number
+          starting_price_note?: string | null
           tagline?: string | null
+          what_you_get?: string[] | null
         }
         Relationships: []
       }
