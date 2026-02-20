@@ -11,7 +11,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[hsl(200_18%_22%)] text-white supports-[backdrop-filter]:bg-[hsl(200_18%_22%/0.95)] backdrop-blur">
         <div className="container flex h-24 items-center justify-between">
         <Link to="/" className="flex items-center">
-          <img src="/images/logo-transparent.png" alt="Simply Delicious Catering" className="h-28 w-auto object-center object-cover" />
+          <img src="/images/logo_512.png" alt="Simply Delicious Catering & BBQ" className="h-28 w-auto object-center object-cover" />
         </Link>
 
         {/* Desktop nav */}
