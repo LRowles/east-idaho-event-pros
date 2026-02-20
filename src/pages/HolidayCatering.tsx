@@ -14,6 +14,7 @@ const HolidayCatering = () => (
       "Order ahead for guaranteed availability",
       "Delivery or pickup options",
     ]}
+    heroImage="https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387333529_6830673047039588_7485125037734111497_n.jpg"
   />
 );
 

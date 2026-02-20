@@ -14,6 +14,7 @@ const PrivateSocialEvents = () => (
     ]}
     bodyText="We work with you to design a menu and service style that fits your event perfectly."
     ctaText="Get Event Catering Quote"
+    heroImage="https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387321781_304541078955913_8034468286226851046_n.jpg"
   />
 );
 

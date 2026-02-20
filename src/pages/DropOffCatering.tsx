@@ -14,6 +14,7 @@ const DropOffCatering = () => (
     ]}
     bodyText="Food arrives ready to serve with clear setup instructions."
     ctaText="Request Drop-Off Catering"
+    heroImage="https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387327410_1364222824529613_3621898923230723551_n.jpg"
   />
 );
 

@@ -16,9 +16,10 @@ interface ServicePageProps {
   highlights: string[];
   bodyText?: string;
   ctaText?: string;
+  heroImage?: string;
 }
 
-const ServicePage = ({ slug, title, hero, description, highlights, bodyText, ctaText }: ServicePageProps) => {
+const ServicePage = ({ slug, title, hero, description, highlights, bodyText, ctaText, heroImage }: ServicePageProps) => {
   const { data: testimonials } = useQuery({
     queryKey: ["testimonials", slug],
     queryFn: async () => {
@@ -29,8 +30,19 @@ const ServicePage = ({ slug, title, hero, description, highlights, bodyText, cta
 
   return (
     <Layout>
-      <section className="bg-primary py-20 text-primary-foreground">
-        <div className="container text-center">
+      <section className="relative py-20 text-primary-foreground">
+        {heroImage ? (
+          <>
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url('${heroImage}')` }}
+            />
+            <div className="absolute inset-0 bg-black/50" />
+          </>
+        ) : (
+          <div className="absolute inset-0 bg-primary" />
+        )}
+        <div className="container relative text-center">
           <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">{hero}</h1>
           <p className="mx-auto max-w-2xl text-lg opacity-90">{description}</p>
           <Button asChild size="lg" variant="secondary" className="mt-6">
@@ -79,7 +91,10 @@ const ServicePage = ({ slug, title, hero, description, highlights, bodyText, cta
         </section>
       )}
 
-      <CTABand buttonText={ctaText || "Get a Catering Quote"} />
+      <CTABand
+        buttonText={ctaText || "Get a Catering Quote"}
+        backgroundImage="https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387335684_3153498594952564_5437634036837287037_n.jpg"
+      />
     </Layout>
   );
 };

@@ -14,6 +14,7 @@ const Rentals = () => (
       "Delivery, setup, and pickup available",
       "Discounted when bundled with catering",
     ]}
+    heroImage="https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387335369_702321075130220_6546428176790508363_n.jpg"
   />
 );
 
