@@ -1,54 +1,88 @@
 
 
-## Plan: Extract and Integrate Images from Existing Website
+## Visual Overhaul: Bigger Logo, Better Hero, Photos Throughout
 
-### Overview
-Copy the two uploaded logo files into the project and seed the galleries table with curated images from the existing WordPress site. The WordPress image URLs will be referenced directly (hotlinked) since the old site is still live and hosts all the original photos.
+### What's Changing
 
-### Step 1: Copy Logo Files into Project
+Based on reviewing the current site, here are the main issues and what we'll fix:
 
-- Copy `Simply_Delicious_web_trans.png` (transparent background) to `public/images/logo-transparent.png` -- used in the Header and light backgrounds
-- Copy `Simply_Delicious_Logo.png` (dark background) to `public/images/logo-dark.png` -- used in the Footer and dark sections
+1. **The header logo is tiny and hard to see** -- we'll make it much bigger and more prominent
+2. **The hero image is barely visible** (too dark, generic stock feel) -- we'll replace it with a better photo and lighter overlay
+3. **Most pages are text-only with no imagery** -- we'll add food photos throughout to make the site feel alive
+4. **Service cards on the homepage have no images** -- we'll add photos to each service card
+5. **The "About" page is plain text** -- we'll add a side-by-side layout with a photo
+6. **Service pages (Wedding, Corporate, etc.) have no hero images** -- we'll add background photos to each
 
-### Step 2: Update Header to Use Logo Image
+---
 
-Replace the text-only "Simply Delicious" link in `src/components/layout/Header.tsx` with an `<img>` tag using the transparent logo.
+### Detailed Changes
 
-### Step 3: Update Footer to Use Logo Image
+**1. Header -- Bigger, More Prominent Logo**
+- Increase header height from `h-16` to `h-20`
+- Increase logo from `h-12` to `h-16` (desktop) for much more visual presence
+- This makes the brand immediately recognizable at the top of every page
 
-Update `src/components/layout/Footer.tsx` to display the dark-background logo variant.
+**2. Homepage Hero -- Replace Background Image**
+- Swap the current dark/generic `catering-services-bg.jpg` for a brighter, more appetizing food photo from the gallery (the grilling station or wedding buffet shot)
+- Lighten the overlay from `bg-black/60` to `bg-black/40` so the food is more visible
+- Add the logo prominently in the hero area above the headline for extra brand impact
 
-### Step 4: Seed Gallery Table with Curated Images
+**3. Homepage Service Cards -- Add Photos**
+- Convert the icon-only service cards into image cards with a photo at the top
+- Map each service to a relevant photo from the gallery:
+  - Wedding Catering: wedding table setting photo
+  - Corporate Catering: corporate lunch buffet photo
+  - Private Events: party food display photo  
+  - Drop-Off Catering: ready-to-serve platters photo
+- Each card will show photo, title, description, and "Learn more" link
 
-Insert ~30-40 curated full-size images from the URL list into the `public.galleries` table, organized by event type. I will select only the original (non-resized) versions and assign appropriate categories:
+**4. ServicePage Component -- Add Hero Background Images**
+- Update the shared `ServicePage` component to accept an optional `heroImage` prop
+- When provided, display it as a background image with overlay (like the homepage hero)
+- Assign photos to each service page:
+  - Wedding: `wedding-resized.jpg`
+  - Corporate: `food-serving.jpg`
+  - Private Events: party food display
+  - Drop-Off: delivered meal setup
+  - Holiday: holiday gathering photo
+  - School/Community: family reunion spread
+  - Rentals: company event buffet
 
-**Wedding** (~10 images): Wedding setup shots, table settings, food displays from the 2023/10 and 2025/03 uploads
+**5. About Page -- Add Photo Layout**
+- Change from single-column text to a two-column layout
+- Left column: existing text content
+- Right column: a food/event photo from the gallery
+- This makes the page feel warmer and more inviting
 
-**Corporate** (~8 images): Food platters, buffet setups, boxed lunches from landscape-oriented photos
+**6. Contact Page -- Add a Photo**
+- Add a food photo alongside the contact form to break up the text-heavy layout
 
-**Social** (~8 images): Party setups, dessert displays, casual food spreads
+**7. CTABand Component -- Add Background Photo Option**
+- Add an optional background image to the CTA sections with overlay
+- Use a different food photo than the hero so the site feels varied
 
-**Drop-Off** (~6 images): Individual meal shots, delivery-ready trays, labeled food items
+**8. Footer Logo -- Bigger**
+- Increase footer logo from `h-14` to `h-20` to match the more prominent brand presence
 
-Each record will include:
-- `title`: Descriptive name
-- `event_type`: Wedding / Corporate / Social / Drop-Off
-- `image_url`: Full-size WordPress URL
-- `caption`: Brief description
-- `sort_order`: Sequential ordering
+---
 
-### Step 5: Add Hero Background Images
+### Technical Summary
 
-Update `src/pages/Index.tsx` to use one of the food photos (like the grilling chicken hero from the existing site) as a background image in the hero section, replacing the plain color background.
+Files to modify:
+- `src/components/layout/Header.tsx` -- bigger logo, taller header
+- `src/components/layout/Footer.tsx` -- bigger footer logo
+- `src/pages/Index.tsx` -- new hero image, photo service cards, logo in hero
+- `src/components/shared/ServicePage.tsx` -- add heroImage prop with background photo support
+- `src/pages/WeddingCatering.tsx` -- pass heroImage URL
+- `src/pages/CorporateCatering.tsx` -- pass heroImage URL
+- `src/pages/PrivateSocialEvents.tsx` -- pass heroImage URL
+- `src/pages/DropOffCatering.tsx` -- pass heroImage URL
+- `src/pages/HolidayCatering.tsx` -- pass heroImage URL
+- `src/pages/SchoolCommunityEvents.tsx` -- pass heroImage URL
+- `src/pages/Rentals.tsx` -- pass heroImage URL
+- `src/pages/About.tsx` -- two-column layout with photo
+- `src/pages/Contact.tsx` -- add photo element
+- `src/components/shared/CTABand.tsx` -- optional background image
 
-Use key background images:
-- Homepage hero: `catering-services-bg.jpg` or the grilling photo
-- Service pages: `wedding-resized.jpg`, `food-serving.jpg`, etc.
-
-### Technical Details
-
-- WordPress URLs are used directly as `image_url` values -- no downloading needed since the old site hosts them
-- The uploaded logo PNGs are copied into `public/images/` for direct reference in HTML
-- Gallery page (`GalleryHub.tsx`) already renders from the `galleries` table with filtering by event_type, so seeded data will display immediately
-- No schema changes needed -- the existing `galleries` table structure supports all fields
+All images will use existing WordPress URLs already in the gallery database -- no new assets needed.
 
