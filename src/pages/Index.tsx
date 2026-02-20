@@ -45,6 +45,33 @@ const SERVICE_DESCRIPTIONS: Record<string, string> = {
   "event-venue": "Indoor + outdoor event space options (up to 300 guests). Ask about packages and add-ons.",
 };
 
+const HOME_SERVICE_ORDER: string[] = [
+  "bbq-catering",
+  "wedding-catering",
+  "corporate-catering",
+  "private-social-events",
+  "drop-off-catering",
+  "holiday-catering",
+  "school-community-events",
+  "event-rentals",
+  "event-venue",
+  "wedding-event-decor",
+  "wedding-flowers",
+  "floral-arrangements",
+  "rentals",
+  "overnight-accommodations-coming-soon",
+];
+
+const sortServicesForHome = <T extends { slug: string; name?: string }>(items: T[]) => {
+  const rank = new Map(HOME_SERVICE_ORDER.map((slug, i) => [slug, i]));
+  return [...items].sort((a, b) => {
+    const ra = rank.has(a.slug) ? (rank.get(a.slug) as number) : 999;
+    const rb = rank.has(b.slug) ? (rank.get(b.slug) as number) : 999;
+    if (ra !== rb) return ra - rb;
+    return (a.name || "").localeCompare(b.name || "");
+  });
+};
+
 const TRUST_INDICATORS = [
   "Trusted throughout East Idaho",
   "Custom menus + flexible service styles",
@@ -141,7 +168,7 @@ const Index = () => {
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {(services || []).map((service) => {
+            {sortServicesForHome(services || []).map((service) => {
               const img = SERVICE_IMAGES[service.slug];
               const desc = SERVICE_DESCRIPTIONS[service.slug] || service.tagline;
 
