@@ -88,8 +88,8 @@ const Index = () => {
   const { data: services } = useQuery({
     queryKey: ["services-home"],
     queryFn: async () => {
-      const { data } = await supabase.from("services").select("*").order("sort_order");
-      return data || [];
+      const { data } = await supabase.from("services").select("*");
+      return sortServicesForHome(data || []);
     },
   });
 
@@ -173,7 +173,7 @@ const Index = () => {
           </p>
 
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {sortServicesForHome(services || []).map((service) => {
+            {(services || []).map((service) => {
               const img = SERVICE_IMAGES[service.slug];
               const desc = SERVICE_DESCRIPTIONS[service.slug] || service.tagline;
 
