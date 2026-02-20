@@ -269,6 +269,39 @@ export type Database = {
           },
         ]
       }
+      menu_sections: {
+        Row: {
+          created_at: string
+          id: string
+          is_featured: boolean
+          menu_section_name: string
+          menu_section_slug: string
+          parent_section_slug: string | null
+          section_intro: string | null
+          sort_order: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_featured?: boolean
+          menu_section_name: string
+          menu_section_slug: string
+          parent_section_slug?: string | null
+          section_intro?: string | null
+          sort_order?: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_featured?: boolean
+          menu_section_name?: string
+          menu_section_slug?: string
+          parent_section_slug?: string | null
+          section_intro?: string | null
+          sort_order?: number
+        }
+        Relationships: []
+      }
       menus: {
         Row: {
           best_for: string | null
