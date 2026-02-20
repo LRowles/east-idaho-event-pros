@@ -80,10 +80,13 @@ export type Database = {
           id: string
           intro_blurb: string | null
           name: string
+          nearby_areas: string[] | null
           seo_description: string | null
           seo_title: string | null
+          service_radius_notes: string | null
           slug: string
           state: string
+          venues_or_landmarks: string[] | null
         }
         Insert: {
           created_at?: string
@@ -91,10 +94,13 @@ export type Database = {
           id?: string
           intro_blurb?: string | null
           name: string
+          nearby_areas?: string[] | null
           seo_description?: string | null
           seo_title?: string | null
+          service_radius_notes?: string | null
           slug: string
           state?: string
+          venues_or_landmarks?: string[] | null
         }
         Update: {
           created_at?: string
@@ -102,10 +108,13 @@ export type Database = {
           id?: string
           intro_blurb?: string | null
           name?: string
+          nearby_areas?: string[] | null
           seo_description?: string | null
           seo_title?: string | null
+          service_radius_notes?: string | null
           slug?: string
           state?: string
+          venues_or_landmarks?: string[] | null
         }
         Relationships: []
       }
