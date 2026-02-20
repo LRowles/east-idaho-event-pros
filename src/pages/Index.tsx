@@ -10,7 +10,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Star, CheckCircle } from "lucide-react";
 
 const SERVICE_IMAGES: Record<string, string> = {
-  "wedding-catering": "https://simplydeliciousmeals4you.com/wp-content/uploads/2025/03/wedding-resized.jpg",
+  "wedding-catering": "https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387323688_1956278011425442_8630726564930268851_n.jpg",
   "corporate-catering": "https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/370300137_1359471194998773_74218418775500628_n.jpg",
   "private-social-events": "https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387321781_304541078955913_8034468286226851046_n.jpg",
   "drop-off-catering": "https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387327410_1364222824529613_3621898923230723551_n.jpg",
