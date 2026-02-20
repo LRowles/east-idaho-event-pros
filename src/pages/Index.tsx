@@ -69,7 +69,7 @@ const Index = () => {
       <section className="relative py-28 text-white md:py-36">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/hero-collage.png')" }}
+          style={{ backgroundImage: "url('/images/bbq-ribs.jpg')" }}
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="container relative text-center">
@@ -191,7 +191,7 @@ const Index = () => {
         title="Request Your Catering Quote Today"
         subtitle="Tell us about your event and we'll help you create the perfect catering plan."
         buttonText="Get a Quote"
-        backgroundImage="/images/hero-collage.png"
+        backgroundImage="/images/fruit-spread.jpg"
       />
     </Layout>
   );
