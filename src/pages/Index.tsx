@@ -6,6 +6,7 @@ import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/shared/SectionHeading";
 import CTABand from "@/components/shared/CTABand";
 import JsonLd from "@/components/shared/JsonLd";
+import RecentEvents from "@/components/shared/RecentEvents";
 import { supabase } from "@/integrations/supabase/client";
 import { Star, CheckCircle } from "lucide-react";
 
@@ -250,6 +251,8 @@ const Index = () => {
           </div>
         </section>
       )}
+
+      <RecentEvents />
 
       {/* SERVICE AREA */}
       {cities && cities.length > 0 && (
