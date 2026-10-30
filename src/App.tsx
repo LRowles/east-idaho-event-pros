@@ -32,6 +32,9 @@ import GetAQuote from "./pages/GetAQuote";
 import ThankYou from "./pages/ThankYou";
 import CityLanding from "./pages/CityLanding";
 import ServiceCityLanding from "./pages/ServiceCityLanding";
+import ServicesHub from "./pages/ServicesHub";
+import LegacyRedirect from "./components/shared/LegacyRedirect";
+import { LEGACY_ROUTES } from "./lib/legacyRoutes";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +46,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/our-services" element={<ServicesHub />} />
+          {Object.keys(LEGACY_ROUTES).map(path => <Route key={path} path={path} element={<LegacyRedirect />} />)}
+          <Route path="/service-areas/:citySlug" element={<LegacyRedirect />} />
           <Route path="/wedding-catering" element={<WeddingCatering />} />
           <Route path="/corporate-catering" element={<CorporateCatering />} />
           <Route path="/private-social-events" element={<PrivateSocialEvents />} />
