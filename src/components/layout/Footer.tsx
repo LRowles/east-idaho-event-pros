@@ -35,6 +35,7 @@ const Footer = () => {
               {[
                 { label: "Wedding Catering", href: "/wedding-catering" },
                 { label: "Corporate Catering", href: "/corporate-catering" },
+                { label: "All Services", href: "/our-services" },
                 { label: "Menus", href: "/menus" },
                 { label: "Gallery", href: "/gallery" },
                 { label: "Service Area", href: "/service-area" },
@@ -55,7 +56,7 @@ const Footer = () => {
           <div>
             <h4 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider">Serving East Idaho</h4>
             <p className="text-sm opacity-80">
-              Idaho Falls · Ammon · Shelley · Rigby · Rexburg · Blackfoot · Pocatello · and 20+ more communities across East Idaho.
+              Idaho Falls · Ammon · Shelley · Rigby · Rexburg · Blackfoot · Pocatello · Driggs · Teton Valley · and communities across East Idaho.
             </p>
             <Link to="/service-area" className="mt-2 inline-block text-sm font-medium text-secondary underline-offset-2 hover:underline">
               View all service areas →
