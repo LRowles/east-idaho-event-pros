@@ -5,6 +5,7 @@ export const LEGACY_ROUTES: Record<string, string> = {
   "/corporate-event-catering": "/corporate-catering",
   "/social-gathering-catering": "/private-social-events",
   "/service-areas": "/service-area",
+  "/graduation-party-catering-celebrating-graduate": "/blog/graduation-party-catering-east-idaho",
 };
 
 export function resolveLegacyPath(pathname: string): string | null {
