@@ -18,3 +18,8 @@ describe("original website addresses", () => {
     expect(resolveLegacyPath("/not-a-real-page")).toBeNull();
   });
 });
+import { resolveLegacyPath as r2 } from "./legacyRoutes";
+import { it as it2, expect as ex2 } from "vitest";
+it2("redirects old graduation post", () => {
+  ex2(r2("/graduation-party-catering-celebrating-graduate/")).toBe("/blog/graduation-party-catering-east-idaho");
+});

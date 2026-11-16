@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Layout from "@/components/layout/Layout";
@@ -15,6 +16,13 @@ const BlogPost = () => {
     },
   });
 
+  useEffect(() => {
+    if (!post) return;
+    document.title = post.seo_title || `${post.title} | Simply Delicious Catering`;
+    const desc = post.seo_description || post.excerpt;
+    if (desc) document.querySelector('meta[name="description"]')?.setAttribute("content", desc);
+  }, [post]);
+
   if (!post) return <Layout><div className="container py-20 text-center text-muted-foreground">Loading...</div></Layout>;
 
   return (
@@ -31,9 +39,9 @@ const BlogPost = () => {
             </p>
           )}
           {post.featured_image && (
-            <img src={post.featured_image} alt={post.title} className="mb-8 w-full rounded-lg object-cover" loading="lazy" />
+            <img src={post.featured_image} alt={post.title} className="mb-8 max-h-[560px] w-full rounded-[18px] border object-cover shadow-card" loading="lazy" />
           )}
-          <div className="prose max-w-none text-muted-foreground" dangerouslySetInnerHTML={{ __html: post.content || "" }} />
+          <div className="prose max-w-none text-muted-foreground [&_h2]:mb-3 [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-foreground [&_p]:mb-5 [&_a]:font-medium [&_a]:text-primary [&_a]:underline" dangerouslySetInnerHTML={{ __html: post.content || "" }} />
           <div className="mt-12">
             <Link to="/blog" className="text-sm font-medium text-primary hover:underline">← Back to Blog</Link>
           </div>
