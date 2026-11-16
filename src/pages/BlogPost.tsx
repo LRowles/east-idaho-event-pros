@@ -41,7 +41,7 @@ const BlogPost = () => {
           {post.featured_image && (
             <img src={post.featured_image} alt={post.title} className="mb-8 max-h-[560px] w-full rounded-[18px] border object-cover shadow-card" loading="lazy" />
           )}
-          <div className="prose max-w-none text-muted-foreground [&_h2]:mb-3 [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-foreground [&_p]:mb-5 [&_a]:font-medium [&_a]:text-primary [&_a]:underline" dangerouslySetInnerHTML={{ __html: post.content || "" }} />
+          <div className="prose max-w-none text-muted-foreground [&_h2]:mb-3 [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-foreground [&_p]:mb-5 [&_figure]:mb-6 [&_a]:font-medium [&_a]:text-primary [&_a]:underline" dangerouslySetInnerHTML={{ __html: post.content || "" }} />
           <div className="mt-12">
             <Link to="/blog" className="text-sm font-medium text-primary hover:underline">← Back to Blog</Link>
           </div>

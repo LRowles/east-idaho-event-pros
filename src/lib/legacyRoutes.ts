@@ -5,6 +5,8 @@ export const LEGACY_ROUTES: Record<string, string> = {
   "/corporate-event-catering": "/corporate-catering",
   "/social-gathering-catering": "/private-social-events",
   "/service-areas": "/service-area",
+  "/choose-right-catering-style-event-size": "/blog/choose-catering-style-event-size",
+  "/guide-catering-family-reunions-eastern-idaho": "/blog/family-reunion-catering-eastern-idaho",
   "/graduation-party-catering-celebrating-graduate": "/blog/graduation-party-catering-east-idaho",
 };
 
