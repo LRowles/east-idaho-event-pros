@@ -66,17 +66,17 @@ const Index = () => {
           <img
             src="/images/logo-transparent.png"
             alt="Simply Delicious Catering & BBQ"
-            className="mx-auto mb-6 h-20 w-auto drop-shadow md:h-28"
+            className="mx-auto mb-6 h-40 w-auto drop-shadow-lg md:h-56 lg:h-64"
             loading="eager"
           />
 
           <h1 className="mx-auto mb-4 max-w-4xl font-display text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-            East Idaho's Best Catering — Featuring <span className="sm:whitespace-nowrap">The Best BBQ Around</span>
+            East Idaho's Best Catering<span className="block text-accent sm:whitespace-nowrap">Featuring The Best BBQ Around</span>
           </h1>
 
           <p className="mx-auto mb-8 max-w-3xl text-lg opacity-95 md:text-xl">
             From slow-smoked BBQ to elegant weddings and full-service events, Simply Delicious makes hosting effortless
-            — and unforgettable.
+            and unforgettable.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">

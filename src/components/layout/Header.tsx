@@ -20,7 +20,7 @@ const Header = () => {
           <Link
             key={link.href}
             to={link.href}
-            className="text-sm font-medium text-primary-foreground/70 transition-colors hover:text-primary-foreground">
+            className="text-sm font-medium text-primary-foreground transition-colors hover:text-accent">
 
               {link.label}
             </Link>
@@ -28,7 +28,7 @@ const Header = () => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href={`tel:${BUSINESS.phone1.replace(/\D/g, "")}`} className="hidden items-center gap-1 text-sm font-medium text-secondary md:flex">
+          <a href={`tel:${BUSINESS.phone1.replace(/\D/g, "")}`} className="hidden items-center gap-1 text-sm font-medium text-accent md:flex">
             <Phone className="h-4 w-4" />
             {BUSINESS.phone1}
           </a>
@@ -53,13 +53,13 @@ const Header = () => {
           <Link
             key={link.href}
             to={link.href}
-            className="rounded-md px-3 py-2 text-sm font-medium text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            className="rounded-md px-3 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10 hover:text-accent"
             onClick={() => setMobileOpen(false)}>
 
                 {link.label}
               </Link>
           )}
-            <a href={`tel:${BUSINESS.phone1.replace(/\D/g, "")}`} className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-secondary">
+            <a href={`tel:${BUSINESS.phone1.replace(/\D/g, "")}`} className="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-accent">
               <Phone className="h-4 w-4" />
               {BUSINESS.phone1}
             </a>
