@@ -33,6 +33,7 @@ import ThankYou from "./pages/ThankYou";
 import CityLanding from "./pages/CityLanding";
 import ServiceCityLanding from "./pages/ServiceCityLanding";
 import ServicesHub from "./pages/ServicesHub";
+import Venues from "./pages/Venues";
 import LegacyRedirect from "./components/shared/LegacyRedirect";
 import { LEGACY_ROUTES } from "./lib/legacyRoutes";
 
@@ -65,6 +66,7 @@ const App = () => (
           <Route path="/overnight-accommodations-coming-soon" element={<OvernightAccommodations />} />
           <Route path="/menus" element={<MenusHub />} />
           <Route path="/menus/:menuSlug" element={<MenuCategory />} />
+          <Route path="/venues" element={<Venues />} />
           <Route path="/gallery" element={<GalleryHub />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/about" element={<About />} />

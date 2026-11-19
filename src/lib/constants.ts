@@ -12,6 +12,7 @@ export const NAV_LINKS = [
   { label: "Weddings", href: "/wedding-catering" },
   { label: "Corporate", href: "/corporate-catering" },
   { label: "Menus", href: "/menus" },
+  { label: "Venues", href: "/venues" },
   { label: "Gallery", href: "/gallery" },
   { label: "Service Area", href: "/service-area" },
   { label: "Blog", href: "/blog" },
