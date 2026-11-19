@@ -5,4 +5,5 @@
 - [x] Repair View Menus and build the all-services page.
 - [x] Map old website addresses to current pages and test navigation.
 
-Hosting limitation: these are browser redirects; permanent server redirects for the original domain require its hosting configuration when replacing the old site.
+Hosting limitation: these are browser redirects; permanent server redirects for the original domain require its hosting configuration when replacing the old site.- [ ] Email contact/quote inquiries to the business Gmail (waiting on Gmail connection).
+- [x] Add warm featured photos to the remaining blog posts.
