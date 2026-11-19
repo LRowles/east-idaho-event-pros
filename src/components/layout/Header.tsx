@@ -8,7 +8,7 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[hsl(200_18%_22%)] text-white supports-[backdrop-filter]:bg-[hsl(200_18%_22%/0.95)] backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-primary-foreground/10 bg-primary text-primary-foreground supports-[backdrop-filter]:bg-primary/95 backdrop-blur">
         <div className="container flex h-24 items-center justify-between">
         <Link to="/" className="flex items-center">
           <img src="/images/logo-transparent.png" alt="Simply Delicious Catering" className="h-28 w-auto object-center object-fill" />
@@ -20,7 +20,7 @@ const Header = () => {
           <Link
             key={link.href}
             to={link.href}
-            className="text-sm font-medium text-white/70 transition-colors hover:text-white">
+            className="text-sm font-medium text-primary-foreground/70 transition-colors hover:text-primary-foreground">
 
               {link.label}
             </Link>
@@ -32,7 +32,7 @@ const Header = () => {
             <Phone className="h-4 w-4" />
             {BUSINESS.phone1}
           </a>
-          <Button asChild size="sm">
+          <Button asChild size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90">
             <Link to="/get-a-quote">Get a Quote</Link>
           </Button>
           <button
@@ -47,13 +47,13 @@ const Header = () => {
 
       {/* Mobile nav */}
       {mobileOpen &&
-      <div className="border-t border-white/10 bg-[hsl(200_18%_22%)] lg:hidden">
+      <div className="border-t border-primary-foreground/10 bg-primary lg:hidden">
           <nav className="container flex flex-col gap-2 py-4">
             {NAV_LINKS.map((link) =>
           <Link
             key={link.href}
             to={link.href}
-            className="rounded-md px-3 py-2 text-sm font-medium text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+            className="rounded-md px-3 py-2 text-sm font-medium text-primary-foreground/70 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground"
             onClick={() => setMobileOpen(false)}>
 
                 {link.label}

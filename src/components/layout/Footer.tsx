@@ -4,7 +4,7 @@ import { BUSINESS } from "@/lib/constants";
 
 const Footer = () => {
   return (
-    <footer className="border-t bg-[hsl(200_18%_22%)] text-white">
+    <footer className="border-t bg-primary text-primary-foreground">
       <div className="container py-12">
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand & Contact */}
@@ -64,7 +64,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-white/20 pt-6 text-center text-xs opacity-60">
+        <div className="mt-8 border-t border-primary-foreground/20 pt-6 text-center text-xs opacity-60">
           © {new Date().getFullYear()} {BUSINESS.name}. All rights reserved.
         </div>
       </div>
