@@ -37,7 +37,7 @@ const Contact = () => {
       <section className="relative py-20 text-primary-foreground">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387328861_197261626655318_5497212651419768350_n.jpg')" }}
+          style={{ backgroundImage: "url('/images/appetizer-cups.jpg')" }}
         />
         <div className="absolute inset-0 bg-black/50" />
         <div className="container relative text-center">
@@ -73,7 +73,7 @@ const Contact = () => {
             </ul>
             <div className="mt-8 overflow-hidden rounded-lg shadow-lg">
               <img
-                src="https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387329700_166175556561960_3353963838566535720_n.jpg"
+                src="/images/cheese-fruit-table.jpg"
                 alt="Simply Delicious catering setup"
                 className="w-full object-cover"
                 loading="lazy"
@@ -104,7 +104,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <CTABand backgroundImage="https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387341855_216830891285400_4660425896227567006_n.jpg" />
+      <CTABand backgroundImage="/images/fruit-spread.jpg" />
     </Layout>
   );
 };

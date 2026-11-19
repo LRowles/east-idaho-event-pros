@@ -69,8 +69,10 @@ const ServiceArea = () => {
 
   return (
     <Layout>
-      <section className="bg-primary py-20 text-primary-foreground">
-        <div className="container text-center">
+      <section className="relative isolate overflow-hidden py-20 text-primary-foreground text-primary-foreground">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${'/images/company-bbq-chicken.jpg'})` }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/65" />
+        <div className="container relative text-center">
           <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">
             Catering Services Throughout East Idaho
           </h1>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import CTABand from "@/components/shared/CTABand";
@@ -9,10 +9,6 @@ import { VENUES, VENUE_REGIONS } from "@/lib/venues";
 
 const Venues = () => {
   const [filter, setFilter] = useState("All");
-  useEffect(() => {
-    document.title = "Venues We Serve | Catering Across East Idaho | Simply Delicious";
-    document.querySelector('meta[name="description"]')?.setAttribute("content", "Simply Delicious caters at East Idaho venues including The Waterfront, Westbank, LaBelle Lake, Rainy Creek Estates, The Red Barn and more. Request a quote.");
-  }, []);
   const list = filter === "All" ? VENUES : VENUES.filter(v => v.region === filter);
 
   return (

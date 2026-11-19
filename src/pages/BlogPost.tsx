@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useSeo } from "@/lib/seo";
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Layout from "@/components/layout/Layout";
@@ -16,12 +16,7 @@ const BlogPost = () => {
     },
   });
 
-  useEffect(() => {
-    if (!post) return;
-    document.title = post.seo_title || `${post.title} | Simply Delicious Catering`;
-    const desc = post.seo_description || post.excerpt;
-    if (desc) document.querySelector('meta[name="description"]')?.setAttribute("content", desc);
-  }, [post]);
+  useSeo(post ? { title: post.seo_title || `${post.title} | Simply Delicious Catering`, description: post.seo_description || post.excerpt || "", image: post.featured_image || undefined } : null);
 
   if (!post) return <Layout><div className="container py-20 text-center text-muted-foreground">Loading...</div></Layout>;
 

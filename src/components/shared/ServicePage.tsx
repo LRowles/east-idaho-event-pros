@@ -7,6 +7,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { Star } from "lucide-react";
+import { useSeo } from "@/lib/seo";
+import { SERVICE_IMAGES } from "@/lib/serviceCatalog";
 
 interface ServicePageProps {
   slug: string;
@@ -28,14 +30,28 @@ const ServicePage = ({ slug, title, hero, description, highlights, bodyText, cta
     },
   });
 
+  const { data: seo } = useQuery({
+    queryKey: ["service-seo", slug],
+    queryFn: async () => {
+      const { data } = await supabase.from("services").select("seo_title, seo_description").eq("slug", slug).maybeSingle();
+      return data;
+    },
+  });
+  const heroPhoto = SERVICE_IMAGES[slug] || heroImage;
+  useSeo({
+    title: seo?.seo_title || `${title} in East Idaho | Simply Delicious Catering`,
+    description: seo?.seo_description || `${hero}. ${description} Serving Idaho Falls, Rexburg, Pocatello and all of East Idaho.`,
+    image: heroPhoto,
+  });
+
   return (
     <Layout>
       <section className="relative py-20 text-primary-foreground">
-        {heroImage ? (
+        {heroPhoto ? (
           <>
             <div
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url('${heroImage}')` }}
+              style={{ backgroundImage: `url('${heroPhoto}')` }}
             />
             <div className="absolute inset-0 bg-black/50" />
           </>
@@ -93,7 +109,7 @@ const ServicePage = ({ slug, title, hero, description, highlights, bodyText, cta
 
       <CTABand
         buttonText={ctaText || "Get a Catering Quote"}
-        backgroundImage="https://simplydeliciousmeals4you.com/wp-content/uploads/2023/10/387335684_3153498594952564_5437634036837287037_n.jpg"
+        backgroundImage="/images/cheese-fruit-table.jpg"
       />
     </Layout>
   );

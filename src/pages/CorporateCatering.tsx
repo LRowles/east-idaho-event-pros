@@ -14,7 +14,6 @@ const CorporateCatering = () => (
     ]}
     bodyText="We make corporate catering simple and reliable."
     ctaText="Request Corporate Catering"
-    heroImage="https://simplydeliciousmeals4you.com/wp-content/uploads/2021/11/food-serving.jpg"
   />
 );
 

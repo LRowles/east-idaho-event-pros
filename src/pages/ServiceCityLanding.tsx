@@ -4,6 +4,8 @@ import Layout from "@/components/layout/Layout";
 import CTABand from "@/components/shared/CTABand";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
+import { useSeo } from "@/lib/seo";
+import { SERVICE_IMAGES } from "@/lib/serviceCatalog";
 
 const ServiceCityLanding = () => {
   const { serviceSlug, citySlug } = useParams<{ serviceSlug: string; citySlug: string }>();
@@ -32,6 +34,8 @@ const ServiceCityLanding = () => {
     },
   });
 
+  useSeo(service && city ? { title: `${service.name} in ${city.name}, ID | Simply Delicious`, description: `${service.name} in ${city.name}, Idaho by Simply Delicious Catering & BBQ. Custom menus, reliable service and easy planning. Request a quote today.`, image: SERVICE_IMAGES[service.slug] } : null);
+
   if (!service || !city) return <Layout><div className="container py-20 text-center text-muted-foreground">Loading...</div></Layout>;
 
   const serviceLower = service.name.toLowerCase();
@@ -39,8 +43,10 @@ const ServiceCityLanding = () => {
 
   return (
     <Layout>
-      <section className="bg-primary py-20 text-primary-foreground md:py-28">
-        <div className="container text-center">
+      <section className="relative isolate overflow-hidden py-20 text-primary-foreground md:py-28 text-primary-foreground">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${SERVICE_IMAGES[service.slug] || '/images/buffet-spread-blue.jpg'})` }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/65" />
+        <div className="container relative text-center">
           <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">
             {service.name} in {city.name}, Idaho
           </h1>

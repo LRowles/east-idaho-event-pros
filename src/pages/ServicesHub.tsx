@@ -20,8 +20,10 @@ const ServicesHub = () => {
 
   return (
     <Layout>
-      <section className="bg-primary py-20 text-primary-foreground">
-        <div className="container text-center">
+      <section className="relative isolate overflow-hidden py-20 text-primary-foreground text-primary-foreground">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${'/images/buffet-spread-blue.jpg'})` }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/65" />
+        <div className="container relative text-center">
           <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">Our Services</h1>
           <p className="mx-auto max-w-3xl text-lg opacity-90">Catering, BBQ, florals, rentals, décor, and venue options for celebrations across East Idaho.</p>
           <Button asChild size="lg" variant="secondary" className="mt-6"><Link to="/get-a-quote">Get a Catering Quote</Link></Button>

@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { useSeo } from "@/lib/seo";
 import { useQuery } from "@tanstack/react-query";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/shared/SectionHeading";
@@ -67,6 +68,8 @@ const CityLanding = () => {
     },
   });
 
+  useSeo(city ? { title: city.seo_title || `Catering in ${city.name}, ID | Simply Delicious`, description: city.seo_description || `Wedding, corporate and BBQ catering in ${city.name}, Idaho. Request a quote from Simply Delicious Catering.`, image: "/images/buffet-spread-blue.jpg" } : null);
+
   const { data: services } = useQuery({
     queryKey: ["services-city"],
     queryFn: async () => {
@@ -93,8 +96,10 @@ const CityLanding = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-primary py-20 text-primary-foreground md:py-28">
-        <div className="container text-center">
+      <section className="relative isolate overflow-hidden py-20 text-primary-foreground md:py-28 text-primary-foreground">
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${'/images/cheese-fruit-table.jpg'})` }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/65" />
+        <div className="container relative text-center">
           <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">
             Catering in {city.name}, Idaho
           </h1>
