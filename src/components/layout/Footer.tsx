@@ -30,7 +30,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider">Quick Links</h4>
+            <h2 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider">Quick Links</h2>
             <ul className="space-y-1 text-sm opacity-80">
               {[
                 { label: "Wedding Catering", href: "/wedding-catering" },
@@ -54,7 +54,7 @@ const Footer = () => {
 
           {/* Service Area */}
           <div>
-            <h4 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider">Serving East Idaho</h4>
+            <h2 className="mb-4 font-display text-sm font-semibold uppercase tracking-wider">Serving East Idaho</h2>
             <p className="text-sm opacity-80">
               Idaho Falls · Ammon · Shelley · Rigby · Rexburg · Blackfoot · Pocatello · Driggs · Teton Valley · and communities across East Idaho.
             </p>

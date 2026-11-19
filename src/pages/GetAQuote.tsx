@@ -90,7 +90,7 @@ const GetAQuote = () => {
                 <div>
                   <Label htmlFor="event_type">Event Type *</Label>
                   <Select name="event_type" defaultValue={searchParams.get("service") || ""}>
-                    <SelectTrigger><SelectValue placeholder="Select event type" /></SelectTrigger>
+                    <SelectTrigger id="event_type" aria-label="Event type"><SelectValue placeholder="Select event type" /></SelectTrigger>
                     <SelectContent>
                       {EVENT_TYPES.map((t) => <SelectItem key={t} value={t}>{t}</SelectItem>)}
                     </SelectContent>
@@ -107,7 +107,7 @@ const GetAQuote = () => {
                 <div>
                   <Label htmlFor="event_city">Event City *</Label>
                   <Select name="event_city" defaultValue={searchParams.get("city") || ""}>
-                    <SelectTrigger><SelectValue placeholder="Select city" /></SelectTrigger>
+                    <SelectTrigger id="event_city" aria-label="Event city"><SelectValue placeholder="Select city" /></SelectTrigger>
                     <SelectContent>
                       {(cities || []).map((c) => <SelectItem key={c.slug} value={c.name}>{c.name}</SelectItem>)}
                     </SelectContent>
@@ -116,7 +116,7 @@ const GetAQuote = () => {
                 <div>
                   <Label htmlFor="service_style">Service Style</Label>
                   <Select name="service_style">
-                    <SelectTrigger><SelectValue placeholder="Select style" /></SelectTrigger>
+                    <SelectTrigger id="service_style" aria-label="Service style"><SelectValue placeholder="Select style" /></SelectTrigger>
                     <SelectContent>
                       {SERVICE_STYLES.map((s) => <SelectItem key={s} value={s}>{s}</SelectItem>)}
                     </SelectContent>
@@ -132,7 +132,7 @@ const GetAQuote = () => {
                 <div>
                   <Label htmlFor="budget_range">Budget Range</Label>
                   <Select name="budget_range">
-                    <SelectTrigger><SelectValue placeholder="Select budget" /></SelectTrigger>
+                    <SelectTrigger id="budget_range" aria-label="Budget range"><SelectValue placeholder="Select budget" /></SelectTrigger>
                     <SelectContent>
                       {BUDGET_RANGES.map((b) => <SelectItem key={b} value={b}>{b}</SelectItem>)}
                     </SelectContent>
@@ -158,9 +158,9 @@ const GetAQuote = () => {
             </form>
           </div>
 
-          <aside className="space-y-6">
+          <div className="space-y-6">
             <div className="rounded-lg border bg-muted p-6">
-              <h3 className="mb-4 font-display text-lg font-semibold">Our Team Can Assist With</h3>
+              <h2 className="mb-4 font-display text-lg font-semibold">Our Team Can Assist With</h2>
               <ul className="space-y-3 text-sm text-muted-foreground">
                 {[
                   "Menu selection",
@@ -178,7 +178,7 @@ const GetAQuote = () => {
                 Submit your request and we'll follow up with next steps.
               </p>
             </div>
-          </aside>
+          </div>
         </div>
       </section>
     </Layout>

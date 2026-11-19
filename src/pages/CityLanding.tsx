@@ -91,7 +91,7 @@ const CityLanding = () => {
   if (!city) return <Layout><div className="container py-20 text-center text-muted-foreground">Loading...</div></Layout>;
 
   const faq = (city.faq as Array<{ q: string; a: string }>) || [];
-  const displayFaq = faq.length > 0 ? faq : DEFAULT_FAQ(city.name);
+  const displayFaq = (faq.length > 0 ? faq : DEFAULT_FAQ(city.name)).map((f: any) => ({ q: f.q ?? f.question ?? "", a: f.a ?? f.answer ?? "" })).filter((f) => f.q);
 
   return (
     <Layout>

@@ -126,11 +126,11 @@ const MenusHub = () => {
             className="rounded-lg border bg-card p-4 transition-shadow hover:shadow-md"
           >
             <div className="flex items-start justify-between gap-2">
-              <h4 className="font-display text-base font-semibold text-foreground">
+              <h3 className="font-display text-base font-semibold text-foreground">
                 {item.menu_item_name}
-              </h4>
+              </h3>
               {item.is_popular && (
-                <Badge variant="secondary" className="shrink-0 border-destructive/30 bg-destructive/10 text-destructive hover:bg-destructive/10">
+                <Badge variant="secondary" className="shrink-0 border-transparent bg-primary text-primary-foreground hover:bg-primary">
                   Popular
                 </Badge>
               )}
@@ -183,6 +183,7 @@ const MenusHub = () => {
       {/* Sticky Section Nav */}
       {!isLoading && topLevelSections.length > 0 && (
         <nav
+          aria-label="Menu sections"
           ref={navRef}
           className="sticky top-0 z-30 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80"
         >

@@ -36,7 +36,7 @@ const BlogHub = () => {
                   )}
                   <CardContent className="p-6">
                     {post.category && <span className="mb-2 inline-block rounded-full bg-primary/10 px-3 py-0.5 text-xs font-medium text-primary">{post.category}</span>}
-                    <h3 className="mb-2 font-display text-lg font-semibold">{post.title}</h3>
+                    <h2 className="mb-2 font-display text-lg font-semibold">{post.title}</h2>
                     <p className="mb-4 text-sm text-muted-foreground">{post.excerpt}</p>
                     <Link to={`/blog/${post.slug}`} className="text-sm font-medium text-primary hover:underline">
                       Read more →

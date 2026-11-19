@@ -13,8 +13,9 @@ const Layout = ({ children }: LayoutProps) => {
   useSeo(STATIC_SEO[pathname.replace(/\/+$/, "") || "/"]);
   return (
     <div className="flex min-h-screen flex-col">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-accent-foreground">Skip to main content</a>
       <Header />
-      <main className="flex-1">{children}</main>
+      <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">{children}</main>
       <Footer />
     </div>
   );
