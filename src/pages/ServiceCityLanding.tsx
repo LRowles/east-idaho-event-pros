@@ -1,3 +1,4 @@
+import { SERVICE_IMAGES as _SI, SERVICE_PAGE_PHOTOS, pickPhoto } from "@/lib/serviceCatalog";
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Layout from "@/components/layout/Layout";
@@ -6,6 +7,11 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useSeo } from "@/lib/seo";
 import { SERVICE_IMAGES } from "@/lib/serviceCatalog";
+
+const cityServicePhoto = (service: string, city: string) => {
+  const pool = [_SI[service], ...(SERVICE_PAGE_PHOTOS[service] || [])].filter(Boolean) as string[];
+  return pool.length ? pickPhoto(city, pool) : pickPhoto(city);
+};
 
 const ServiceCityLanding = () => {
   const { serviceSlug, citySlug } = useParams<{ serviceSlug: string; citySlug: string }>();
@@ -34,7 +40,7 @@ const ServiceCityLanding = () => {
     },
   });
 
-  useSeo(service && city ? { title: `${service.name} in ${city.name}, ID | Simply Delicious`, description: `${service.name} in ${city.name}, Idaho by Simply Delicious Catering & BBQ. Custom menus, reliable service and easy planning. Request a quote today.`, image: SERVICE_IMAGES[service.slug] } : null);
+  useSeo(service && city ? { title: `${service.name} in ${city.name}, ID | Simply Delicious`, description: `${service.name} in ${city.name}, Idaho by Simply Delicious Catering & BBQ. Custom menus, reliable service and easy planning. Request a quote today.`, image: cityServicePhoto(service.slug, city.slug) } : null);
 
   if (!service || !city) return <Layout><div className="container py-20 text-center text-muted-foreground">Loading...</div></Layout>;
 
@@ -44,7 +50,7 @@ const ServiceCityLanding = () => {
   return (
     <Layout>
       <section className="relative isolate overflow-hidden py-20 text-primary-foreground md:py-28 text-primary-foreground">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${SERVICE_IMAGES[service.slug] || '/images/buffet-spread-blue.jpg'})` }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${cityServicePhoto(service.slug, city.slug)})` }} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/65" />
         <div className="container relative text-center">
           <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">
@@ -114,6 +120,7 @@ const ServiceCityLanding = () => {
       <CTABand
         buttonHref={`/get-a-quote?service=${service.slug}&city=${city.name}`}
         buttonText="Get a Quote"
+        backgroundImage={pickPhoto(city.slug, undefined, 5)}
       />
     </Layout>
   );

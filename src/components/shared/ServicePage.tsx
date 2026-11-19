@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { Star } from "lucide-react";
 import { useSeo } from "@/lib/seo";
-import { SERVICE_IMAGES } from "@/lib/serviceCatalog";
+import { SERVICE_IMAGES, SERVICE_PAGE_PHOTOS, pickPhoto } from "@/lib/serviceCatalog";
 
 interface ServicePageProps {
   slug: string;
@@ -37,7 +37,8 @@ const ServicePage = ({ slug, title, hero, description, highlights, bodyText, cta
       return data;
     },
   });
-  const heroPhoto = SERVICE_IMAGES[slug] || heroImage;
+  const heroPhoto = SERVICE_IMAGES[slug] || heroImage || pickPhoto(slug);
+  const [photoA, photoB, ctaPhoto] = SERVICE_PAGE_PHOTOS[slug] || [pickPhoto(slug, undefined, 1), pickPhoto(slug, undefined, 2), pickPhoto(slug, undefined, 3)];
   useSeo({
     title: seo?.seo_title || `${title} in East Idaho | Simply Delicious Catering`,
     description: seo?.seo_description || `${hero}. ${description} Serving Idaho Falls, Rexburg, Pocatello and all of East Idaho.`,
@@ -68,19 +69,26 @@ const ServicePage = ({ slug, title, hero, description, highlights, bodyText, cta
       </section>
 
       <section className="py-20">
-        <div className="container">
-          <SectionHeading title="What We Offer" />
-          <ul className="mx-auto mt-8 max-w-xl space-y-3">
-            {highlights.map((h, i) => (
-              <li key={i} className="flex items-start gap-3 text-muted-foreground">
-                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />
-                {h}
-              </li>
+        <div className="container grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <SectionHeading title="What We Offer" />
+            <ul className="mx-auto mt-8 max-w-xl space-y-3">
+              {highlights.map((h, i) => (
+                <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                  {h}
+                </li>
+              ))}
+            </ul>
+            {bodyText && <p className="mx-auto mt-6 max-w-xl text-muted-foreground">{bodyText}</p>}
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[photoA, photoB].map((src, i) => (
+              <div key={src} className={`overflow-hidden rounded-[18px] shadow-card ${i === 1 ? "mt-10" : ""}`}>
+                <img src={src} alt={`${title} by Simply Delicious Catering, photo ${i + 1}`} loading="lazy" className="aspect-[3/4] h-full w-full object-cover transition-transform duration-500 motion-safe:hover:scale-[1.04]" />
+              </div>
             ))}
-          </ul>
-          {bodyText && (
-            <p className="mx-auto mt-6 max-w-xl text-muted-foreground">{bodyText}</p>
-          )}
+          </div>
         </div>
       </section>
 
@@ -109,7 +117,7 @@ const ServicePage = ({ slug, title, hero, description, highlights, bodyText, cta
 
       <CTABand
         buttonText={ctaText || "Get a Catering Quote"}
-        backgroundImage="/images/cheese-fruit-table.jpg"
+        backgroundImage={ctaPhoto}
       />
     </Layout>
   );

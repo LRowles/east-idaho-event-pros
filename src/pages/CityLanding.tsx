@@ -1,3 +1,4 @@
+import { pickPhoto } from "@/lib/serviceCatalog";
 import { useParams, Link } from "react-router-dom";
 import { useSeo } from "@/lib/seo";
 import { useQuery } from "@tanstack/react-query";
@@ -68,7 +69,7 @@ const CityLanding = () => {
     },
   });
 
-  useSeo(city ? { title: city.seo_title || `Catering in ${city.name}, ID | Simply Delicious`, description: city.seo_description || `Wedding, corporate and BBQ catering in ${city.name}, Idaho. Request a quote from Simply Delicious Catering.`, image: "/images/buffet-spread-blue.jpg" } : null);
+  useSeo(city ? { title: city.seo_title || `Catering in ${city.name}, ID | Simply Delicious`, description: city.seo_description || `Wedding, corporate and BBQ catering in ${city.name}, Idaho. Request a quote from Simply Delicious Catering.`, image: pickPhoto(city.slug) } : null);
 
   const { data: services } = useQuery({
     queryKey: ["services-city"],
@@ -97,7 +98,7 @@ const CityLanding = () => {
     <Layout>
       {/* Hero */}
       <section className="relative isolate overflow-hidden py-20 text-primary-foreground md:py-28 text-primary-foreground">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${'/images/cheese-fruit-table.jpg'})` }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${pickPhoto(city.slug)})` }} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/65" />
         <div className="container relative text-center">
           <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">
@@ -235,6 +236,7 @@ const CityLanding = () => {
         title={`Ready to plan catering in ${city.name}?`}
         buttonHref={`/get-a-quote?city=${city.name}`}
         buttonText="Get a Catering Quote"
+        backgroundImage={pickPhoto(city.slug, undefined, 7)}
       />
     </Layout>
   );

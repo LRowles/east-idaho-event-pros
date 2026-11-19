@@ -9,8 +9,7 @@ export const BUSINESS = {
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Weddings", href: "/wedding-catering" },
-  { label: "Corporate", href: "/corporate-catering" },
+  { label: "Services", href: "/our-services" },
   { label: "Menus", href: "/menus" },
   { label: "Venues", href: "/venues" },
   { label: "Gallery", href: "/gallery" },

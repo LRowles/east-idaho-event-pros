@@ -104,7 +104,7 @@ const Index = () => {
         <div className="container">
           <SectionHeading title="Everything You Need for a Seamless, Beautiful Event" />
           <p className="mx-auto mt-4 max-w-3xl text-center text-muted-foreground">
-            Catering, BBQ, appetizers, desserts — plus florals, rentals, décor, and venue options. Choose what you need,
+            Catering, BBQ, appetizers, desserts, plus florals, rentals, décor, and venue options. Choose what you need,
             and we’ll help you build the perfect plan.
           </p>
 
@@ -198,7 +198,7 @@ const Index = () => {
           <div className="container">
             <SectionHeading title="Serving Communities Throughout East Idaho" />
             <p className="mx-auto mt-3 max-w-3xl text-center text-muted-foreground">
-              Find catering near you — and request a quote in minutes.
+              Find catering near you and request a quote in minutes.
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-2">
@@ -225,7 +225,7 @@ const Index = () => {
       {/* FINAL CTA */}
       <CTABand
         title="Request Your Catering Quote Today"
-        subtitle="Share your date, guest count, and location — we’ll follow up with menu options and a clear plan."
+        subtitle="Share your date, guest count, and location, and we’ll follow up with menu options and a clear plan."
         buttonText="Get a Quote"
         backgroundImage="/images/fruit-spread.jpg"
       />
