@@ -17,7 +17,7 @@ const GalleryHub = () => {
     <Layout>
       <section className="relative isolate overflow-hidden py-24 text-primary-foreground">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/waterfront-wedding.jpg')" }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary/80 via-secondary/60 to-secondary/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/65" />
         <div className="container relative text-center">
           <h1 className="mb-4 font-display text-4xl font-bold md:text-5xl">Gallery</h1>
           <p className="mx-auto max-w-2xl text-lg opacity-90">Weddings, company BBQs, and celebrations we've catered across East Idaho.</p>
