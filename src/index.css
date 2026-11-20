@@ -156,3 +156,11 @@
     @apply font-button;
   }
 }
+
+/* Cinematic warm grade applied to every photo (logos excluded) */
+@layer base {
+  img:not([src*="logo"]):not([src$=".svg"]),
+  .bg-cover[style*="background-image"]:empty {
+    filter: sepia(0.18) saturate(1.15) contrast(1.06) brightness(0.98) hue-rotate(-6deg);
+  }
+}
