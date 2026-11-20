@@ -12,7 +12,7 @@ export const VENUES: Venue[] = [
   { name: "Emalee’s Venue", location: "Rexburg, Idaho", region: "Rustic & Barn", blurb: "Charming surroundings for intimate celebrations and bridal events.", image: "/images/dessert-spread.jpg" },
   { name: "LaBelle Lake", location: "Rigby, Idaho", region: "Mountain & Lakeside", blurb: "A naturally beautiful lakeside setting for outdoor weddings.", image: "/images/labelle-desserts.jpg" },
   { name: "Meridell Park Farm", location: "Pocatello, Idaho", region: "Rustic & Barn", blurb: "Farm charm for rustic events and seasonal celebrations.", image: "/images/fruit-charcuterie.jpeg" },
-  { name: "The DEC", location: "Idaho Falls, Idaho", region: "Event Centers", blurb: "A versatile downtown venue for corporate and social events.", image: "/images/corporate-catering-live.jpg" },
+  { name: "The DEC", location: "Idaho Falls, Idaho", region: "Event Centers", blurb: "A versatile downtown venue for corporate and social events.", image: "/images/the-dec-downtown.jpg" },
   { name: "Westbank Events Center", location: "Idaho Falls, Idaho", region: "Event Centers", blurb: "Spacious facilities suited to large celebrations and galas.", image: "/images/westbank-best-bbq.jpg" },
   { name: "ISU & University of Idaho", location: "Pocatello & Moscow, Idaho", region: "Campus & Community", blurb: "Faculty dinners, campus celebrations, and university events.", image: "/images/corporate-buffet-line.jpg" },
   { name: "Church Events", location: "Throughout East Idaho", region: "Campus & Community", blurb: "Receptions, youth events, community meals, and celebrations.", image: "/images/buffet-spread-blue.jpg" },

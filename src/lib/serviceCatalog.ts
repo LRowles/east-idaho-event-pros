@@ -64,19 +64,19 @@ export const sortServicesForHome = <T extends { slug: string; name?: string }>(i
 
 /** Extra photos shown on each service page: [section photo 1, section photo 2, closing banner]. */
 export const SERVICE_PAGE_PHOTOS: Record<string, [string, string, string]> = {
-  "bbq-catering": ["/images/smoked-brisket.jpg", "/images/westbank-best-bbq.jpg", "/images/company-bbq-chicken.jpg"],
+  "bbq-catering": ["/images/smoked-brisket.jpg", "/images/grilled-chicken.jpg", "/images/company-bbq-chicken.jpg"],
   "wedding-catering": ["/images/spring-garden-wedding.jpeg", "/images/waterfront-wedding.jpg", "/images/table-centerpiece.jpg"],
-  "corporate-catering": ["/images/corporate-buffet-line.jpg", "/images/corporate-catering-live.jpg", "/images/appetizer-cups.jpg"],
+  "corporate-catering": ["/images/corporate-buffet-line.jpg", "/images/pinwheel-sandwiches.jpg", "/images/caprese-platter.jpg"],
   "private-social-events": ["/images/reunion-spread.jpeg", "/images/graduation-desserts.jpg", "/images/reunion-private-event.jpg"],
-  "drop-off-catering": ["/images/style-food-station.jpeg", "/images/fruit-charcuterie.jpeg", "/images/cheese-fruit-table.jpg"],
-  "school-community-events": ["/images/company-bbq-chicken.jpg", "/images/reunion-spread.jpeg", "/images/fruit-spread.jpg"],
-  "holiday-catering": ["/images/labelle-desserts.jpg", "/images/smoked-brisket.jpg", "/images/table-centerpiece.jpg"],
+  "drop-off-catering": ["/images/charcuterie-grazing-display.jpg", "/images/savory-appetizer-cups.jpg", "/images/cheese-fruit-table.jpg"],
+  "school-community-events": ["/images/community-catering-booth.jpg", "/images/cookie-assortment.jpg", "/images/fresh-vegetable-platter.jpg"],
+  "holiday-catering": ["/images/cream-puff-tier.jpg", "/images/warm-meat-buffet.jpg", "/images/dessert-bars.jpg"],
   "rentals": ["/images/event-rentals.jpg", "/images/wedding-event-decor.jpg", "/images/event-venue.jpg"],
   "event-rentals": ["/images/style-buffet-setup.jpeg", "/images/table-centerpiece.jpg", "/images/wedding-venue.jpg"],
-  "floral-arrangements": ["/images/table-centerpiece.jpg", "/images/wedding-flowers.jpg", "/images/spring-garden-wedding.jpeg"],
+  "floral-arrangements": ["/images/floral-table-centerpiece.jpg", "/images/wedding-glassware-floral-detail.jpg", "/images/spring-garden-wedding.jpeg"],
   "wedding-flowers": ["/images/floral-arrangements.jpg", "/images/spring-garden-wedding.jpeg", "/images/waterfront-wedding.jpg"],
-  "wedding-event-decor": ["/images/mr-mrs-doors.jpg", "/images/table-centerpiece.jpg", "/images/wedding-venue.jpg"],
-  "event-venue": ["/images/wedding-venue.jpg", "/images/waterfront-wedding.jpg", "/images/wedding-event-decor.jpg"],
+  "wedding-event-decor": ["/images/mr-mrs-doors.jpg", "/images/rustic-lantern-centerpiece.jpg", "/images/wedding-venue.jpg"],
+  "event-venue": ["/images/venue-hall.jpg", "/images/waterfront-wedding.jpg", "/images/the-dec-downtown.jpg"],
   "overnight-accommodations-coming-soon": ["/images/event-venue.jpg", "/images/wedding-venue.jpg", "/images/spring-garden-wedding.jpeg"],
 };
 
@@ -88,6 +88,10 @@ export const CITY_PHOTO_POOL = [
   "/images/reunion-spread.jpeg", "/images/table-centerpiece.jpg", "/images/westbank-best-bbq.jpg",
   "/images/labelle-desserts.jpg", "/images/style-food-station.jpeg", "/images/wedding-venue.jpg",
   "/images/fruit-spread.jpg", "/images/dessert-spread.jpg", "/images/corporate-catering-live.jpg",
+  "/images/charcuterie-grazing-display.jpg", "/images/caprese-platter.jpg", "/images/warm-meat-buffet.jpg",
+  "/images/grilled-chicken.jpg", "/images/dessert-table.jpg", "/images/shrimp-avocado-salad.jpg",
+  "/images/fresh-vegetable-platter.jpg", "/images/cream-puffs.jpg", "/images/dessert-bars.jpg",
+  "/images/beef-sandwich.jpg", "/images/fresh-salsa.jpg", "/images/venue-hall.jpg",
 ];
 
 /** Stable photo choice for a slug, so a page always shows the same photo but neighbours differ. */
