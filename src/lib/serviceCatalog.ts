@@ -1,5 +1,5 @@
 export const SERVICE_IMAGES: Record<string, string> = {
-  "bbq-catering": "/images/bbq-catering.jpg",
+  "bbq-catering": "/images/smoked-brisket.jpg",
   "wedding-catering": "/images/wedding-cake-cutting.jpg",
   "corporate-catering": "/images/corporate-catering.jpg",
   "private-social-events": "/images/private-events.jpg",
@@ -64,7 +64,7 @@ export const sortServicesForHome = <T extends { slug: string; name?: string }>(i
 
 /** Extra photos shown on each service page: [section photo 1, section photo 2, closing banner]. */
 export const SERVICE_PAGE_PHOTOS: Record<string, [string, string, string]> = {
-  "bbq-catering": ["/images/smoked-brisket.jpg", "/images/grilled-chicken.jpg", "/images/company-bbq-chicken.jpg"],
+  "bbq-catering": ["/images/bbq-catering.jpg", "/images/grilled-chicken.jpg", "/images/company-bbq-chicken.jpg"],
   "wedding-catering": ["/images/spring-garden-wedding.jpeg", "/images/waterfront-wedding.jpg", "/images/table-centerpiece.jpg"],
   "corporate-catering": ["/images/corporate-buffet-line.jpg", "/images/pinwheel-sandwiches.jpg", "/images/caprese-platter.jpg"],
   "private-social-events": ["/images/reunion-spread.jpeg", "/images/graduation-desserts.jpg", "/images/reunion-private-event.jpg"],
