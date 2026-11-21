@@ -1,5 +1,4 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -7,8 +6,52 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+const GOOGLE_MAIL_API_KEY = Deno.env.get("GOOGLE_MAIL_API_KEY");
+const GMAIL_SEND_URL =
+  "https://connector-gateway.lovable.dev/google_mail/gmail/v1/users/me/messages/send";
 const BUSINESS_EMAIL = "Simplydeliciousmeals4you@gmail.com";
+
+const b64 = (s: string) =>
+  btoa(
+    Array.from(new TextEncoder().encode(s), (b) => String.fromCharCode(b)).join(
+      "",
+    ),
+  );
+const b64url = (s: string) =>
+  b64(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+const header = (v: string) =>
+  /^[\x00-\x7F]*$/.test(v) ? v : `=?UTF-8?B?${b64(v)}?=`;
+
+function createRawEmail(to: string, subject: string, body: string): string {
+  const email = [
+    `To: ${to}`,
+    `Subject: ${header(subject)}`,
+    "MIME-Version: 1.0",
+    'Content-Type: text/plain; charset="UTF-8"',
+    "",
+    body,
+  ].join("\r\n");
+  return b64url(email);
+}
+
+async function sendViaGmail(to: string, subject: string, body: string) {
+  const res = await fetch(GMAIL_SEND_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${LOVABLE_API_KEY}`,
+      "X-Connection-Api-Key": GOOGLE_MAIL_API_KEY!,
+    },
+    body: JSON.stringify({ raw: createRawEmail(to, subject, body) }),
+  });
+  if (!res.ok) {
+    const errorBody = await res.text();
+    console.error(`Gmail send failed [${res.status}]: ${errorBody}`);
+    throw new Error(`Gmail send failed [${res.status}]: ${errorBody}`);
+  }
+  return res.json();
+}
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -25,65 +68,70 @@ serve(async (req) => {
       });
     }
 
-    // If no RESEND_API_KEY, just log and return success
-    if (!RESEND_API_KEY) {
-      console.log("No RESEND_API_KEY configured. Skipping emails.");
-      console.log("Would send auto-response to:", lead.email);
-      console.log("Would send notification to:", BUSINESS_EMAIL);
-      return new Response(JSON.stringify({ success: true, skipped: true }), {
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
+    if (!LOVABLE_API_KEY || !GOOGLE_MAIL_API_KEY) {
+      console.error("Missing LOVABLE_API_KEY or GOOGLE_MAIL_API_KEY");
+      return new Response(
+        JSON.stringify({ error: "Email service not configured" }),
+        {
+          status: 500,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        },
+      );
     }
 
-    // Send auto-response to client
-    const autoResponse = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: "Simply Delicious Catering <noreply@simplydeliciouscatering.com>",
-        to: [lead.email],
-        subject: "We Received Your Catering Request",
-        html: `<p>Hello,</p>
-<p>Thank you for contacting Simply Delicious Catering.</p>
-<p>We have received your request and a member of our team will review your event details and follow up shortly.</p>
-<p>We look forward to helping you create a successful and memorable event.</p>
-<p>Simply Delicious Catering</p>`,
-      }),
-    });
+    const isQuickQuestion = lead.source === "quick_question";
 
-    // Send internal notification
-    const internalNotification = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: "Simply Delicious Catering <noreply@simplydeliciouscatering.com>",
-        to: [BUSINESS_EMAIL],
-        subject: "New Catering Quote Request",
-        html: `<p>New catering inquiry received.</p>
-<p><strong>Name:</strong> ${lead.full_name}</p>
-<p><strong>Email:</strong> ${lead.email}</p>
-<p><strong>Phone:</strong> ${lead.phone || "N/A"}</p>
-<p><strong>Event Type:</strong> ${lead.event_type || "N/A"}</p>
-<p><strong>Event Date:</strong> ${lead.event_date || "N/A"}</p>
-<p><strong>Guest Count:</strong> ${lead.guest_count || "N/A"}</p>
-<p><strong>City:</strong> ${lead.event_city || "N/A"}</p>
-<p><strong>Message:</strong> ${lead.message || "N/A"}</p>
-<p>Review in dashboard and follow up promptly.</p>`,
-      }),
-    });
+    // Auto-response to the person who submitted
+    const autoSubject = isQuickQuestion
+      ? "We Received Your Message"
+      : "We Received Your Catering Request";
+    const autoBody = [
+      `Hello ${lead.full_name},`,
+      "",
+      "Thank you for contacting Simply Delicious Catering.",
+      isQuickQuestion
+        ? "We have received your message and will get back to you soon."
+        : "We have received your request and a member of our team will review your event details and follow up shortly.",
+      "",
+      "We look forward to helping you create a successful and memorable event.",
+      "",
+      "Simply Delicious Catering",
+      "208-757-8222",
+    ].join("\r\n");
+
+    await sendViaGmail(lead.email, autoSubject, autoBody);
+
+    // Notification to the business owner
+    const notifySubject = isQuickQuestion
+      ? `New Website Message from ${lead.full_name}`
+      : `New Catering Quote Request from ${lead.full_name}`;
+    const lines = [
+      isQuickQuestion
+        ? "New message received through the website contact form."
+        : "New catering inquiry received.",
+      "",
+      `Name: ${lead.full_name}`,
+      `Email: ${lead.email}`,
+      `Phone: ${lead.phone || "N/A"}`,
+    ];
+    if (!isQuickQuestion) {
+      lines.push(
+        `Event Type: ${lead.event_type || "N/A"}`,
+        `Event Date: ${lead.event_date || "N/A"}`,
+        `Guest Count: ${lead.guest_count || "N/A"}`,
+        `City: ${lead.event_city || "N/A"}`,
+      );
+    }
+    lines.push(`Message: ${lead.message || "N/A"}`, "", "Follow up promptly.");
+
+    await sendViaGmail(BUSINESS_EMAIL, notifySubject, lines.join("\r\n"));
 
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (error) {
     console.error("Error sending emails:", error);
-    return new Response(JSON.stringify({ error: error.message }), {
+    return new Response(JSON.stringify({ error: String(error) }), {
       status: 500,
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });

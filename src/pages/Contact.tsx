@@ -17,12 +17,16 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     const form = new FormData(e.currentTarget);
-    const { error } = await supabase.from("leads").insert({
+    const leadData = {
       full_name: form.get("name") as string,
       email: form.get("email") as string,
       message: form.get("message") as string,
       source: "quick_question",
-    });
+    };
+    const { error } = await supabase.from("leads").insert(leadData);
+    if (!error) {
+      supabase.functions.invoke("send-quote-emails", { body: { lead: leadData } }).catch(console.error);
+    }
     setLoading(false);
     if (error) {
       toast.error("Something went wrong. Please try again.");
